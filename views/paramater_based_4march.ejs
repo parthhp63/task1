@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+       body{
+          background-color:#c2c2ee;
+          font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 20px;
+        }
+
+        table{
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        table,
+        table th,
+        table td{
+            border: 1px solid white;
+        }
+
+        .search-box,
+        #showbutton,
+        .arrows{
+            margin: auto 23%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="search-box">
+        <form action="/home" method="post">
+        <label for="id">Student Id:- &nbsp;</label>
+        <input type="text" name="id">
+        <input type="submit" value="submit">
+    </form>
+    </div>
+     
+    <input type="button" onclick="more()" value="Show More" id="showbutton">
+
+    <form action="/home/showall" id="showall" method="post">
+        First Name: <input type="text" name="fname" id="fname" tabindex="2">
+        Last Name:  <input type="text" name="lname" id="lname" tabindex="3">
+        city: <input type="text" name="city" id="city" tabindex="4">
+        State: <input type="text" name="state" id="state" tabindex="5">
+       Choice:
+        <select name="choice" id="choices" tabindex="6">
+          <option value="and">And</option>
+          <option value="or">Or</option></select>
+        <input type="submit" value="submitt" tabindex="7">
+    </form>
+    <section>
+        <div class="arrows">
+            <div class="row">
+                <% if(Number(current_p)!=1 && Number(current_p)!=0){%>
+                    <a href="/home?page_no=1%"><button>&#x3c;&#x3c;</button></a>
+                    <a href="/home?page_no=<%= Number(current_p)-1 %>"><button>&#x3c;</button></a>
+                <%} else{ %>
+                    <a aria-disabled="true" href="/home?page_no=1%"><button disabled>&#x3c;&#x3c;</button></a>
+                    <a  aria-disabled="true" href="/home?page_no=<%= Number(current_p)-1 %>"><button disabled>&#x3c;</button></a>
+                <%} %>
+
+                <span><%= current_p %></span>
+
+                <% if(Number(current_p)!= Number(pageEnd)){%>
+                    <a href="/home?page_no=<%= Number(current_p)+1 %>"><button>&#x3e;</button></a>
+                    <a href="/home?page_no=<%= Number(pageEnd) %>"><button>&#x3e;&#x3e;</button></a>
+                <%} else{ %>
+                    <a aria-disabled="true" href="/home?page_no=<%= Number(current_p)+1 %>"><button disabled>&#x3e;</button></a>
+                    <a  aria-disabled="true" href="/home?page_no=<%= Number(pageEnd) %>"><button disabled>&#x3e;&#x3e;</button></a>
+                <%} %>
+                
+            </div> 
+        </div>
+    </section>
+
+    
+    <!-- <div class="showmore">
+        <form action="/home" method="post">
+            <label for="id">Student Id</label>
+            <input type="text" name="id">
+            <input type="submit" value="submit">
+    </div> -->
+    
+    <table>
+        <div class="message"><%= message %></div>
+        <tr>
+            <th>Student ID</a></th> 
+            <th>Firstname</a></th>
+            <th>Middle name</a></th>
+            <th>LastName</a></th>
+            <th>Date of Birth</th>
+            <th>Contact Number</a></th>
+            <th>Email</a></th>
+            <th>Address</a></th>
+            <th>City</a></th>
+            <th>State</a></th>
+            <th>Country</a></th>
+            <th>Zipcode</a></th>
+            <th>Blood Group</a></th>
+            <th>Created Date</a></th>
+        </tr>
+
+        <% user.forEach(function(data) { %>
+        <tr>
+                <td><%=data.stu_id%></td>    
+                <td><%=data.fname%></td>
+                <td><%=data.mname%></td>
+                <td><%=data.lname%></td>
+                <td><%=data.dob%></td>
+                <td><%=data.contact_no%></td>
+                <td><%=data.email%></td>
+                <td><%=data.address%></td>
+                <td><%=data.city%></td>
+                <td><%=data.state%></td>
+                <td><%=data.country%></td>
+                <td><%=data.zipcode%></td>
+                <td><%=data.blood_group %></td>
+                <td><%=data.created_date %></td>
+            </tr>
+            <% }) %>
+    </table>
+
+    <script>
+        var btn1=  document.getElementById('showbutton');
+        var show2= document.getElementById('showall');
+        show2.style.display='none';
+        var now=0;
+        function more(){
+            if(now==0){
+                show2.style.display='block';
+                btn1.value='Show Less';
+                now=1;
+
+            }
+            else{
+                show2.style.display='none';
+                btn1.value='Show More';
+                now=0;
+            }
+   
+        }
+ 
+    </script>
+</body>
+</html>
+
+

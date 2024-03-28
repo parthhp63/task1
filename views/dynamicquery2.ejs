@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+                    body{
+                background-color: rgb(15, 15, 15);
+               color:whitesmoke ; 
+            }
+        .queryclass{
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        table{
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin: 20px auto;
+
+        }
+      table th a{
+        text-decoration: none;
+        color: white;
+      }
+        table,
+        table th,
+        table td{
+            border: 1px solid white;
+        }
+
+        button{
+          text-decoration: none;
+          color: white;
+          background-color: black;
+          width: 100%;
+          border: none;
+        }
+    .pagecomp{
+        text-align: center;
+    }
+
+    </style>
+
+</head>
+<body>
+    <div class="queryclass"> 
+        <div class="info">
+            <center> <h2>Parth Patil- 24DEV014</h2>  </center>
+            <h3>Write your SQl Queries</h3>
+        </div>
+     <form action="/dynamicquery" method="post">
+        <!-- <input type="text" name="qr">  -->
+        <textarea name="qr" id="" cols="40" rows="5"></textarea>
+        <input type="submit">
+     </form>
+    </div>
+
+    <div class="flex" class="pagecomp">
+        
+        <% if(currentno==1){%>
+            <a href="/firstp_dynamicquery"><input type="button" value="<<" disabled></a>
+            <a href="/previousp_dynamicquery"><input type="button" value="<" disabled></a>
+        <% } else{ %>
+            <a href="/firstp_dynamicquery"><input type="button" value="<<" ></a>
+            <a href="/previousp_dynamicquery"><input type="button" value="<" ></a>
+        <% } %>
+
+          <span id="current_p"><%= currentno  %></span>
+          <% if(total_records<=40 || currentno==total_records/40){%>
+            <a href="/nextp_dynamicquery"><input type="button" value=">" disabled></a>
+            <a href="/lastp_dynamicquery"><input type="button" value=">>" disabled></a>
+         <% } else{ %>
+            <a href="/nextp_dynamicquery"><input type="button" value=">" ></a>
+             <a href="/lastp_dynamicquery"><input type="button" value=">>" ></a>
+         <% } %>
+    </div>
+ <table id="myTable">
+    <tr>
+    <% for(let i=0;i<fields.length; i++){ %>
+             <th> <a><%= fields[i].name %></a>  </th>
+    <%} %>
+
+    </tr>
+
+        <% result.forEach(res => { %>
+            <tr>
+                <% for( let i = 0; i < fields.length; i++ ) { %>
+                    <td><%= res[fields[i].name]  %></td>
+                    <% } %>
+            </tr>
+
+        <% }) %>
+       
+        </tr>
+</table>
+</body>
+</html>

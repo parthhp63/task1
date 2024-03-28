@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+
+    <style>
+        body{
+            justify-content: center;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        table{
+            background-color: black;
+            color: white;
+            margin-left: 30%;
+             margin-top: 21px;
+        }
+        table,
+        table th,
+        table td{
+            border: 1px solid white;
+        }
+        .details{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+  
+    <div class="details">
+        <h1>Parth Patil</h1>
+        <h2>Report </h2>
+    </div>
+
+    <h3><b>Student ID:- &nbsp;<%= data[0].stu_id %></b></h3>
+    <h3><b>Student Name:- &nbsp;<%= data[0].fname %> <%= data[0].lname %></b></h3>
+
+
+    <table> 
+        <tr>
+          <th rowspan="2">Subject Name</th>
+          <th colspan="2">Terminal Marks</th>
+          <th colspan="2">Prelim Marks</th>
+          <th colspan="2">Final Marks</th>
+          <th rowspan="2">Total Marks </th>
+
+        </tr>
+        <tr>
+           <th colspan="1">Practical</th>
+           <th colspan="1"> Theory</th>
+           <th colspan="1">Practical</th>
+           <th colspan="1"> Theory</th>
+           <th colspan="1">Practical</th>
+           <th colspan="1"> Theory</th> 
+        </tr>
+               
+            <% let final=0; %>
+                <% for(let i=0; i<18; i+=3){ %>
+                    <tr>
+                        <% let total=0; %>
+
+                <td><%= data[i].sub_name %></td>
+                
+                <% for(let j=i; j<i+3; j++){ %>
+                <td><%= data[j].prac_marks%></td>
+                <td><%= data[j].theor_marks%></td>
+                 <% total=total+data[j].prac_marks+data[j].theor_marks %>
+                <% }%>
+                 <td><%= total %></td>
+                 <%final=final+total %>
+                </tr>
+                <%}%>
+                <td colspan="8">Percentage:-  <%= ((final *100)/1200).toFixed(2) %> %</td>
+                 </td>
+
+
+
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+                background-color: rgb(15, 15, 15);
+               color:whitesmoke ; 
+               text-align: center;
+               justify-content: center;
+            }
+
+        #write{
+            width: 40px ;
+        }
+        table{
+            border: 2px solid white;
+        }
+        table th,
+        table td{
+            border: 2px solid white;
+        }
+        .des{
+            color: white;
+        }
+        a:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+  <center>  
+      <div class="flex">
+        <% if(currentno==1){%>
+            <a href="/firstp"><input type="button" value="<<" disabled></a>
+            <a href="/previousp"><input type="button" value="<" disabled></a>
+        <% } else{ %>
+            <a href="/firstp"><input type="button" value="<<" ></a>
+            <a href="/previousp"><input type="button" value="<" ></a>
+        <% } %>
+
+          <span id="current_p"><%= currentno  %></span>
+          <% if(currentno==50){%>
+            <a href="/nextp"><input type="button" value=">" disabled></a>
+            <a href="/lastp"><input type="button" value=">>" disabled></a>
+         <% } else{ %>
+            <a href="/nextp"><input type="button" value=">" ></a>
+             <a href="/lastp"><input type="button" value=">>" ></a>
+         <% } %>
+
+  </center>
+
+    <table>
+        <tr>
+            <th><a class="des" href="/sortby?field=stu_id">Student ID</a></th> 
+            <th><a class="des" href="/sortby?field=fname">Firstname</a></th>
+            <th><a class="des" href="/sortby?field=mname">Middle name</a></th>
+            <th><a class="des" href="/sortby?field=lname">LastName</a></th>
+            <th><a class="des" href="/sortby?field=dob">Date of Birth</th>
+            <th><a class="des" href="/sortby?field=contact_no">Contact Number</a></th>
+            <th><a class="des" href="/sortby?field=email">Email</a></th>
+            <th><a class="des" href="/sortby?field=address">Address</a></th>
+            <th><a class="des" href="/sortby?field=city">City</a></th>
+            <th><a class="des" href="/sortby?field=state">State</a></th>
+            <th><a class="des" href="/sortby?field=country">Country</a></th>
+            <th><a class="des" href="/sortby?field=zipcode">Zipcode</a></th>
+            <th><a class="des" href="/sortby?field=blood_group">Blood Group</a></th>
+            <th><a class="des" href="/sortby?field=created_date">Created Date</a></th>
+        </tr>
+
+       
+
+        <% user.forEach(function(data)  { %>           
+         <tr>
+            <td><%=data.stu_id%></td>    
+            <td><%=data.fname%></td>
+            <td><%=data.mname%></td>
+            <td><%=data.lname%></td>
+            <td><%=data.dob%></td>
+            <td><%=data.contact_no%></td>
+            <td><%=data.email%></td>
+            <td><%=data.address%></td>
+            <td><%=data.city%></td>
+            <td><%=data.state%></td>
+            <td><%=data.country%></td>
+            <td><%=data.zipcode%></td>
+            <td><%=data.blood_group %></td>
+            <td><%=data.created_date %></td>
+         </tr>
+        <% }); %>
+    </table>
+
+
+</body>
+</html>

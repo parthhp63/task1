@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table{
+            border: 2px solid black;
+        }
+        table td,
+        table th{
+            border: 2px solid black;
+        }
+        .flex{
+            display: flex;
+            padding: 10px;
+        }
+        .disabled-link {
+  pointer-events: none;
+}
+body{
+            justify-content: center;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            
+        }
+        table{
+            background-color: black;
+            color: white;
+            margin-left: 30%;
+             margin-top: 21px;
+        }
+        table,
+        table th,
+        table td{
+            border: 1px solid white;
+        }
+        .navbar{
+            text-align: center;
+            justify-content: center;
+            margin: auto 10px;
+        }
+
+
+
+    </style>
+</head>
+
+
+<body>
+
+    <p>Parth Patil</p>
+
+      <div class="flex navbar">
+        <% if(currentno==1){%>
+            <a href="/firstp_stu_per"><input type="button" value="<<" disabled></a>
+            <a href="/previousp_stu_per"><input type="button" value="<" disabled></a>
+        <% } else{ %>
+            <a href="/firstp_stu_per"><input type="button" value="<<" ></a>
+            <a href="/previousp_stu_per"><input type="button" value="<" ></a>
+        <% } %>
+
+          <span id="current_p"><%= currentno  %></span>
+          <% if(currentno==10){%>
+            <a href="/nextp_stu_per"><input type="button" value=">" disabled></a>
+            <a href="/lastp_stu_per"><input type="button" value=">>" disabled></a>
+         <% } else{ %>
+            <a href="/nextp_stu_per"><input type="button" value=">" ></a>
+             <a href="/lastp_stu_per"><input type="button" value=">>" ></a>
+         <% } %>
+
+   <form action="/percentage" method="get">
+    <select name="months" id="months">
+      <option value="12" <% if(months==12){%>selected<%}%>>December</option>
+      <option value="01" <% if(months==01){%>selected<%}%>>January</option>
+      <option value="02" <% if(months==02){%>selected<%}%>>Feburary</option>
+    </select> 
+    <select name="Year" id="year">
+        <option value="2023" <% if(Year==2023){%>selected<%}%>>2023</option>
+        <option value="2024" <% if(Year==2024){%>selected<%}%>>2024</option>
+    </select>
+       <input type="submit" value="submit">
+
+    </form> 
+
+    </div>
+    <table>
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Year</th>
+            <th>Month</th>
+            <th>Present Days</th>
+            <th>Precentage%</th>
+        </tr>
+
+
+        <% user.forEach(function(data)  { %>           
+            <tr>
+               <td><%=data.stu_id%></td>    
+               <td><%=data.fname%></td>
+               <td><%= data.year %></td>
+               <td><%= data.month %></td>
+               <td><%=data.present%></td>
+               <td><%=data.percentage%></td>
+            </tr>
+           <% }); %>
+    </table>
+     
+</body>
+</html>

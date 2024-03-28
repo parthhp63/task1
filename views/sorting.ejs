@@ -1,0 +1,59 @@
+<!-- issue comming in sorting in numbers now -->
+
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort</title>
+    <style>
+         body{
+            background-color: black;
+            color: aliceblue;
+         }
+
+         #result{
+            border: 2px solid red;
+         }
+    </style>
+</head>
+<body>
+   <center> <h2>Parth Patil- 01/02/2024- 24DEV014</h2>  </center>
+   <center>
+   <div>
+    <p> Enter the no's or string you want to sort seprated with space</p>
+    <input type="text" id="sort">
+    <button id="bttn">Sort</button>
+   </div>
+   <p id="result"></p>
+   </center>
+   
+    <script>
+        document.getElementById("bttn").addEventListener("click",()=>{
+            
+            var p=document.getElementById("sort").value;
+            
+             var arr=p.split(" ");    
+            console.log(arr);
+
+            for(var i=0; i<arr.length; i++){
+                for(var j=0; j<arr.length-i-1; j++){
+                    
+                    if(parseInt(arr[j])>parseInt(arr[j+1])){
+                        var temp = arr[j]
+                        arr[j]=arr[j+1];
+                        arr[j+1]=temp;
+                    }
+                }
+            }
+            console.log(arr)
+            document.getElementById("result").innerHTML="The Sorted List/array is:"+arr;
+        }
+        );
+
+        
+
+
+    </script>
+</body>
+</html>

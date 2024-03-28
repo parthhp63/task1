@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+                    body{
+                background-color: rgb(15, 15, 15);
+               color:whitesmoke ; 
+               text-align: center;
+               justify-content: center;
+            }
+
+        #one {
+            display: inline-flex;
+        }
+
+        button {
+            height: 40px;
+            width: 50px;
+        }
+        td{
+            border: 3px solid black;
+        }
+        tr:nth-child(odd) td:nth-child(even),
+        tr:nth-child(even) td:nth-child(odd){
+            background-color: rgb(223, 248, 2);
+        }
+
+          tr:nth-child(even) td:nth-child(even),
+        tr:nth-child(odd) td:nth-child(odd){
+            background-color: rgb(8, 215, 230);
+        }   
+        
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <h2 class="details">Emp Name: Parth Patil</h2>
+    <h2 class="details">date:01/02/2024</h2>
+    <h2 class="details">Emp Id: 24DEV014</h2>
+    <h2 class="details"> Dynamic Table</h2>
+
+    <div id="one" class="first">
+        <div id="two" class="second">
+            <table id="table1" cellspacing="0" cellpadding="50">
+                <tr>
+                    <td style="background-color: rgb(8, 215, 230);"></td>
+                    <td style="background-color: rgb(223, 248, 2);"></td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(223, 248, 2);"></td>
+                    <td style="background-color: rgb(8, 215, 230);"></td>
+                </tr>
+            </table>
+
+            <button id="addrow" class="row" onclick="rowadd()">add row </button>
+            <button id="delrow" class="row" onclick="rowdel()">del row </button>
+
+        </div>
+        <button id="addcol" class="col" onclick="coladd()">add col </button>
+        <button id="delcol" class="colo" onclick="coldel()">del col </button>
+    </div>
+
+
+
+
+    <script>
+
+        function rowadd(){
+            let table=document.getElementById("table1");
+            let rowcount=table.rows.length;
+            let colcount=table.rows[0].cells.length;
+
+            
+            let rows=table.insertRow(rowcount);
+            for(let i=0; i<colcount; i++){
+                let newcell=rows.insertCell(i);
+            }
+        }
+
+        function rowdel(){
+            let table=document.getElementById("table1");
+            let rowcount=table.rows.length;
+            if(rowcount > 2){
+                let i= rowcount -1;
+                table.deleteRow(i);
+            }
+
+            else if(rowcount <=2){
+                alert("Cannot Delete Rows as no of rows is 2 or less than it.")
+            }
+        }
+
+        function coladd(){
+            let table=document.getElementById("table1");
+            let colcount=table.rows[0].cells.length;
+            let rowcount=table.rows;
+            let cell;
+            for(let i=0; i<rowcount.length; i++){
+                cell=rowcount[i].insertCell(colcount);
+            }
+
+        }
+
+        function coldel(){
+            let table=document.getElementById("table1");
+            let rowcount=table.rows.length;
+            let colcount=table.rows[0].cells.length;
+
+            if(colcount>2){
+                for(var i=0; i<rowcount; i++){
+                    table1.rows[i].deleteCell(-1);
+                }
+            }
+            else if(colcount <=2){
+                alert("Cannot Delete Rows as no of rows is 2 or less than it.")
+            }
+              
+        }
+    </script>
+</body>
+
+</html>

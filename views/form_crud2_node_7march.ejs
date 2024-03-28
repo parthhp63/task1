@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <head>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <style>
+            fieldset {
+                border: 4px solid rgb(0, 153, 255);
+                border-radius: 12px;
+                padding: 10px;
+                margin: 4px;
+            }
+
+            p {
+                color: red;
+            }
+        </style>
+    </head>
+
+<body>
+    <form action="/form/update" method="post"  name="myform">
+        <div>
+            <center>
+                <h2>Job Application Form</h2>
+            </center>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <!-- Basic Details-->
+                <div class="col">
+                    <fieldset>
+                        <legend>Basic Details</legend>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6-">
+                                    <input type="hidden" value="<%=id%>" name="id">
+                                    <label name="first_name">First Name</label>
+                                    <input name="first_name" id="first_name" type="text" class="form-control"
+                                        value="<%=emp_details[0].first_name %>" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6-">
+                                    <label name="last_name">Last Name</label>
+                                    <input name="last_name" id="last_name" type="text" class="form-control"
+                                        value="<%=emp_details[0].last_name%>" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label name="designation">Designation</label>
+                                    <input name="designation_basic" id="designation_basic" type="text"
+                                        class="form-control" value="<%=emp_details[0].designation%>" />
+                                    <p class="validate_of"></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label name="Address_1">Address 1</label>
+                                    <input type="text" name="address_1" id="address_1" class="form-control"
+                                        value="<%=emp_details[0].address_1%>"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="phone">Phone</label>
+                                    <input name="phone" id="phone" type="text" class="form-control"
+                                        value="<%=emp_details[0].phone%>" />
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="city">city</label>
+                                    <input name="city" id="city" type="text" class="form-control"
+                                        value="<%=emp_details[0].city%>" />
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <% if(emp_details[0].state=='Guajarat' ){%>
+                                        <label for="state">State</label>
+                                        <select name="state" id="state" class="form-control">
+                                            <option value="Guajarat" selected>Gujarat</option>
+                                            <option value="Maharashtra">Maharashtra</option>
+                                            <option value="UP">UP</option>
+                                            <option value="punjab">Punjab</option>
+                                        </select>
+                                        <% } else if(emp_details[0].state=='Maharashtra' ){%>
+                                            <label for="state">State</label>
+                                            <select name="state" id="state" class="form-control">
+                                                <option value="Guajarat">Gujarat</option>
+                                                <option value="Maharashtra" selected>Maharashtra</option>
+                                                <option value="UP">UP</option>
+                                                <option value="punjab">Punjab</option>
+                                            </select>
+
+                                            <%} else if(emp_details[0].state=='UP' ){%>
+                                                <label for="state">State</label>
+                                                <select name="state" id="state" class="form-control">
+                                                    <option value="Guajarat">Gujarat</option>
+                                                    <option value="Maharashtra">Maharashtra</option>
+                                                    <option value="UP" selected> UP</option>
+                                                    <option value="punjab">Punjab</option>
+                                                </select>
+                                                <%} else if(emp_details[0].state=='punjab' ){%>
+                                                    <label for="state">State</label>
+                                                    <select name="state" id="state" class="form-control">
+                                                        <option value="Guajarat">Gujarat</option>
+                                                        <option value="Maharashtra">Maharashtra</option>
+                                                        <option value="UP">UP</option>
+                                                        <option value="punjab" selected>Punjab</option>
+                                                    </select>
+                                                    <% }%>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email">E-Mail</label>
+                                    <input name="email" id="email" type="text" class="form-control"
+                                        value="<%=emp_details[0].email%>" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6" class="form-control">
+                                    <label>Gender:</label>
+                                    <div class="control">
+                                            <input type="radio" name="gender" value="male"  <% if(emp_details[0].gender=='male'){%>  checked <%}%>> Male
+                                            <input type="radio" name="gender" value="female" <% if(emp_details[0].gender=='female'){%> checked <%}%>>Female
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="zip_code">Zip Code</label>
+                                    <input id="zip_code" name="zip_code" type="text" class="form-control"
+                                        value="<%=emp_details[0].zip_code%>" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                        <label for="relationship_status">RelationShip Status</label>
+                                        <select name="status" id="status" class="form-control">
+                                            <option value="single" <% if(emp_details[0].status=='single'){%>  selected <%}%> >Single</option>
+                                            <option value="married" <% if(emp_details[0].status=='married'){%>  selected <%}%> >Married</option>
+                                        </select>
+                                       
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="dob">Date of Birth</label>
+                                    <input type="text" id="dob" name="dob" class="form-control"
+                                        value="<%=emp_details[0].dob%>" />
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+
+                <!-- Education Details-->
+                <div class="col">
+                    <fieldset>
+                        <legend>Education Details</legend>
+                        <div class="container">
+
+                            <!-- SSC result-->
+
+                            <% if(education_details[0]){%>
+                                <div class="row">
+                                    <div class="col">
+                                        SSC Result
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label name="board_name">Name of Board</label>
+                                        <input name="board_name" type="text" id="board_name_ssc" class="form-control"
+                                            value="<%=education_details[0].board_name_course_name%>" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label name="passing_year">Passing Year</label>
+                                        <input name="passing_year" type="text" id="passing_year_ssc"
+                                            class="form-control" value="<%=education_details[0].passing_year %>" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label name="percentage">Percentage</label>
+                                        <input name="percentage" type="text" id="percentage_ssc" class="form-control"
+                                            value="<%=education_details[0].percentage %>" />
+                                    </div>
+                                </div>
+                                <hr>
+                                <% } else{%>
+                                    <div class="row">
+                                        <div class="col">
+                                            SSC Result
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label name="board_name">Name of Board</label>
+                                            <input name="board_name" type="text" id="board_name_ssc"
+                                                class="form-control" />
+                                            <p class="ssc"></p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label name="passing_year">Passing Year</label>
+                                            <input name="passing_year" type="text" id="passing_year_ssc"
+                                                class="form-control" />
+                                            <p class="ssc eduno_validation"></p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label name="percentage">Percentage</label>
+                                            <input name="percentage" type="text" id="percentage_ssc"
+                                                class="form-control" />
+                                            <p class="ssc eduno_validation"></p>
+                                        </div>
+                                        <p class="education_validation"></p>
+                                    </div>
+                                    <hr>
+                                    <% }%>
+
+                    <!-- HSC result-->
+                     <% if(education_details[1]){%>
+                            <div class="row">
+                        <div class="col">
+                                HSC Result
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label name="board_name_hsc">Name of Board</label>
+                                <input name="board_name" type="text" id="board_name_hsc" class="form-control" value="<%=education_details[1].board_name_course_name%>"/>
+                            </div>
+                            <div class="col-md-4">
+                                <label name="passing_year_hsc">Passing Year</label>
+                                <input name="passing_year" type="text" id="passing_year_hsc" class="form-control" value="<%=education_details[1].passing_year%>" />
+                            </div>
+                            <div class="col-md-4">
+                                <label name="percentage_hsc">Percentage</label>
+                                <input name="percentage" type="text" id="percentage_hsc" class="form-control" value="<%=education_details[1].percentage%>" />
+                            </div>
+                        </div>
+                        <hr>
+
+                        <%}else{%>
+                            <div class="row">
+                                <div class="col">
+                                    HSC Result
+                                </div>
+                            </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label name="board_name_hsc">Name of Board</label>
+                        <input name="board_name" type="text" id="board_name_hsc" class="form-control" />
+                        <p class="hsc"></p>
+                    </div>
+                    <div class="col-md-4">
+                        <label name="passing_year_hsc">Passing Year</label>
+                        <input name="passing_year" type="text" id="passing_year_hsc" class="form-control" />
+                        <p class="hsc eduno_validation"></p>
+                    </div>
+                    <div class="col-md-4">
+                        <label name="percentage_hsc">Percentage</label>
+                        <input name="percentage" type="text" id="percentage_hsc" class="form-control" />
+                        <p class="hsc eduno_validation"></p>
+                    </div>
+                    <p class="education_validation"></p>
+                </div>
+                <hr>
+
+                <%}%>
+
+
+                    <!-- bachelor result-->
+                    <% if(education_details[2]){%>
+                    <div class="row">
+                        <div class="col-md-4">
+                            Bachelor Degree
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label name="course_name">Course Name</label>
+                            <input name="board_name" type="text" id="board_name_bc" class="form-control" value="<%=education_details[2].board_name_course_name%>" />
+                        </div>
+                        <div class="col-md-4">
+                            <label name="passing_year_bc">Passing Year</label>
+                            <input name="passing_year" type="text" class="form-control" id="passing_year_bc" value="<%=education_details[2].passing_year%>" />
+                        </div>
+                        <div class="col-md-4">
+                            <label name="percentage_bc">Percentage</label>
+                            <input name="percentage" type="text" class="form-control" id="percentage_bc" value="<%=education_details[2].percentage%>"/>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <% } else{%>
+                        <div class="row">
+                            <div class="col-md-4">
+                                Bachelor Degree
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label name="course_name">Course Name</label>
+                                <input name="board_name" type="text" id="board_name_bc" class="form-control" />
+                                <p class="bc"></p>
+                            </div>
+                            <div class="col-md-4">
+                                <label name="passing_year_bc">Passing Year</label>
+                                <input name="passing_year" type="text" class="form-control" id="passing_year_bc" />
+                                <p class="bc eduno_validation"></p>
+                            </div>
+                            <div class="col-md-4">
+                                <label name="percentage_bc">Percentage</label>
+                                <input name="percentage" type="text" class="form-control" id="percentage_bc" />
+                                <p class="bc eduno_validation"></p>
+                            </div>
+                            <p class="education_validation"></p>
+                        </div>
+                        <hr>
+                    <% } %>
+
+                    <!--Master Result-->
+                        <% if(education_details[3]){%>
+                    <div class="row">
+                        <div class="col">
+                            Master Degree
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label name="course_name">Course Name</label>
+                            <input name="board_name" type="text" class="form-control" id="board_name_ms" value="<%=education_details[3].board_name_course_name%>"/>
+
+                        </div>
+                        <div class="col-md-4">
+                            <label name="passing_year_ms">Passing Year</label>
+                            <input name="passing_year" type="text" class="form-control" id="passing_year_ms" value="<%=education_details[3].passing_year%>" />
+                        </div>
+                        <div class="col-md-4">
+                            <label name="percentage_ms">Percentage</label>
+                            <input name="percentage" type="text" class="form-control" id="percentage_ms" value="<%=education_details[3].percentage%>" />
+                        </div>
+                    </div>
+
+                    <% }else{%>
+                        <div class="row">
+                            <div class="col">
+                                Master Degree
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label name="course_name">Course Name</label>
+                                <input name="board_name" type="text" class="form-control" id="board_name_ms" />
+                                <p class="ms"></p>
+    
+                            </div>
+                            <div class="col-md-4">
+                                <label name="passing_year_ms">Passing Year</label>
+                                <input name="passing_year" type="text" class="form-control" id="passing_year_ms" />
+                                <p class="ms eduno_validation"></p>
+                            </div>
+                            <div class="col-md-4">
+                                <label name="percentage_ms">Percentage</label>
+                                <input name="percentage" type="text" class="form-control" id="percentage_ms" />
+                                <p class="ms eduno_validation"></p>
+                            </div>
+                            <p class="education_validation"></p>
+                        </div>
+                    <%}%>
+            </div>
+            </fieldset>
+
+            <!--Work Experience-->
+        <div class="row"  >
+            <div class="col">
+                <fieldset>
+                    <legend> Work Experience</legend>
+
+                <div class="container" >
+            
+                    <% if(work_experience[0]){%>
+                    <div class="row" >
+                        <div class="col-md-3">
+                            <label name="company_name" >Company Name</label>
+                            <input name="company_name" type="text" class="form-control" id="company_name1" value="<%=work_experience[0].company_name %>" />
+                        </div>
+                        <div class="col-md-3">
+                            <label name="designation" >Designation</label>
+                            <input name="designation" type="text" class="form-control" id="designation1"  value="<%=work_experience[0].designation %>"/>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="from">From</label>
+                            <input type="text" name="from" class="form-control" id="from1" value="<%=work_experience[0].exp_from %>"/>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="to">To </label>
+                            <input type="text" id="to1" name="to" class="form-control" value="<%=work_experience[0].exp_to %>"/> 
+                        </div>
+                    </div>
+                    <% }else{%>
+                        <div class="row" >
+                            <div class="col-md-3">
+                                <label name="company_name" >Company Name</label>
+                                <input name="company_name" type="text" class="form-control" id="company_name1" />
+                            </div>
+                            <div class="col-md-3">
+                                <label name="designation" >Designation</label>
+                                <input name="designation" type="text" class="form-control" id="designation1" />
+                            </div>
+                            <div class="col-md-3">
+                                <label for="from">From</label>
+                                <input type="text" name="from" class="form-control" id="from1"/>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="to">To </label>
+                                <input type="text" id="to1" name="to" class="form-control"/> 
+                            </div>
+                        </div>
+                        <%}%>
+
+
+                    <!-- -------------- -->
+                    <% if(work_experience[1]){%>
+                    <div class="row"    >
+                        <div class="col-md-3">
+                            <label name="company_name" >Company Name</label>
+                            <input name="company_name" type="text" class="form-control" id="company_name2" value="<%=work_experience[1].company_name %>"/>
+                        </div>
+                        <div class="col-md-3">
+                            <label name="designation" >Designation</label>
+                            <input name="designation" type="text" class="form-control" id="designation2" value="<%=work_experience[1].designation %>"/>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="from">From</label>
+                            <input type="text" name="from" class="form-control" id="from2" value="<%=work_experience[1].exp_from %>"/>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="to">To </label>
+                            <input type="text" id="to2" name="to" class="form-control" value="<%=work_experience[1].exp_to %>"/> 
+                    </div>
+                    <% }else{%>
+                        <div class="row" >
+                            <div class="col-md-3">
+                                <label name="company_name" >Company Name</label>
+                                <input name="company_name" type="text" class="form-control" id="company_name2" />
+                            </div>
+                            <div class="col-md-3">
+                                <label name="designation" >Designation</label>
+                                <input name="designation" type="text" class="form-control" id="designation2" />
+                            </div>
+                            <div class="col-md-3">
+                                <label for="from">From</label>
+                                <input type="text" name="from" class="form-control" id="from2"/>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="to">To </label>
+                                <input type="text" id="to2" name="to" class="form-control"/> 
+                            </div>
+                        </div>
+                        <%}%>
+
+                        <% if(work_experience[2]){%>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label name="company_name" >Company Name</label>
+                            <input name="company_name" type="text" class="form-control" id="company_name3" value="<%= work_experience[2].company_name %>"/>
+                        </div>
+                        <div class="col-md-3">
+                            <label name="designation" >Designation</label>
+                            <input name="designation" type="text" class="form-control" id="designation3" value="<%=work_experience[2].designation %>"/>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="from">From</label>
+                            <input type="text" name="from" class="form-control" id="from3" value="<%= work_experience[2].exp_from %>"/>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="to">To </label>
+                            <input type="text" id="to3" name="to" class="form-control" value="<%= work_experience[2].exp_to %>"/> 
+                        </div>
+                    </div>
+                    <% }else{%>
+                        <div class="row" >
+                            <div class="col-md-3">
+                                <label name="company_name" >Company Name</label>
+                                <input name="company_name" type="text" class="form-control" id="company_name3" />
+                            </div>
+                            <div class="col-md-3">
+                                <label name="designation" >Designation</label>
+                                <input name="designation" type="text" class="form-control" id="designation3" />
+                            </div>
+                            <div class="col-md-3">
+                                <label for="from">From</label>
+                                <input type="text" name="from" class="form-control" id="from3"/>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="to">To </label>
+                                <input type="text" id="to3" name="to" class="form-control"/> 
+                            </div>
+                        </div>
+                        <%}%>
+                </div>
+                </fieldset>
+            </div>
+            </div>
+
+         <!-- ------------------------------------------------ -->
+
+
+        <!--Language known & Technologies-->
+        <div class="row">
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>Language Known</legend>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="checkbox" name="lang1" value="hindi" id="hindil" <%if(ar.includes('hindi')){%> checked<%} %>>
+                                <label for="lang1"> Hindi</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="hindi" value="read" id="read1">
+                                <label for="read"> read</label>&nbsp;
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="hindi" value="write" id="write1">
+                                <label for="write"> write</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="hindi" value="speak" id="speak1">
+                                <label for="speak"> speak</label>
+                            </div>
+                             <p id="language_check1"></p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="checkbox" name="lang2" value="english"  id="engl" <%if(ar.includes('english')){%> checked<%} %> >
+                                <label for="lang2"> English</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="eng" value="read" id="read2">
+                                <label for="read"> read</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="eng" value="write" id="write2">
+                                <label for="write"> write</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="eng" value="speak" id="speak2">
+                                <label for="speak"> speak</label> 
+                            </div>
+                            <p id="language_check2"></p>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="checkbox" name="lang3" value="gujarti" id="gujl" <%if(ar.includes('gujarti')){%> checked<%} %>>
+                                <label for="lang3"> Gujarati</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="guj" value="read" id="read3">
+                                <label for="read"> read</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="guj" value="write" id="write3">
+                                <label for="write"> write</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="guj" value="speak" id="speak3">
+                                <label for="speak"> speak</label> 
+                            </div>
+                            <p id="language_check3"></p>
+                        </div>
+                </fieldset>
+            </div>
+
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>Technologies</legend>
+                    <div class="container"></div>
+
+
+                    <div class="row">
+                        <div class="col-md-3">
+
+                            <input type="checkbox" name="technology" value="php" id="php" <%if(tech.includes('php')){%> checked<%} %>>
+                            <label for="technology1"> PHP</label>
+                        </div>
+
+                        <div class="col-md-3">
+                              <input type="radio" id="beginer1" name="tech1" value="beginer" <%if(tech_op.includes('beginerphp')){%> checked<%} %> >
+                              <label for="beginer" >beginer</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio" id="mediator1" name="tech1" value="mediator" <%if(tech_op.includes('mediatorphp')){%> checked<%} %>>
+                              <label for="mediator" >Mediator</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio" id="expert1" name="tech1" value="expert"  <%if(tech_op.includes('expertphp')){%> checked<%} %>>
+                              <label for="expert">Expert</label>    
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="checkbox" name="technology" value="MYSQL" id="mysql" <%if(tech.includes('MYSQL')){%> checked<%}%>>
+                            <label for="technology1" > MYSQL</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio"  name="tech2" value="beginer" id="beginer2" <%if(tech_op.includes('beginermysql')){%> checked<%} %>>
+                              <label for="beginer" >beginer</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio"  name="tech2" value="mediator" id="mediator2" <%if(tech_op.includes('mediatormysql')){%> checked<%} %>>
+                              <label for="mediator" >Mediator</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio" name="tech2" value="expert" id="expert2" <%if(tech_op.includes('expertmysql')){%> checked<%} %>>
+                              <label for="expert" >Expert</label>
+                        </div>
+                        <p id="tech2"></p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="checkbox" name="technology" value="laravel" id="laravel" <%if(tech.includes('laravel')){%> checked<%}%>>
+                            <label for="technology1"  > Laravel</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio"  name="tech3" value="beginer" id="beginer3" <%if(tech_op.includes('beginerlaravel')){%> checked<%} %>>
+                              <label for="beginer" >beginer</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio"  name="tech3" value="mediator" id="mediator3" <%if(tech_op.includes('mediatorlaravel')){%> checked<%} %>>
+                              <label for="mediator" >Mediator</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio" name="tech3" value="expert" id="expert3" <%if(tech_op.includes('expertlaravel')){%> checked<%} %>>
+                              <label for="expert" >Expert</label>
+                        </div>
+                        <p id="tech3"></p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="checkbox" name="technology" value="Oracle" id="oracle" <%if(tech.includes('Oracle')){%> checked<%}%>>
+                            <label for="technology1" > Oracle</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio"  name="tech4" value="beginer" id="beginer4" <%if(tech_op.includes('begineroracle')){%> checked<%} %>>
+                              <label for="beginer" >beginer</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio"  name="tech4" value="mediator" id="mediator4" <%if(tech_op.includes('mediatororacle')){%> checked<%} %>>
+                              <label for="mediator" >Mediator</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio" name="tech4" value="expert" id="expert4" <%if(tech_op.includes('expertoracle')){%> checked<%} %>>
+                              <label for="expert" >Expert</label>
+                        </div>
+                        <p id="tech4"></p>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+<!--------------------------------------------------------------------- -->
+         <!--Refrence contact-->
+      <div class="row">
+        <div class="col">
+            <fieldset>
+                <legend>Refrence Contact</legend>
+                
+                <div class="container">
+
+                    <% if(refrences[0]){%>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label name="name" >Name</label>
+                            <input name="ref_name" type="text" 
+                            id="name1" class="form-control" value="<%= refrences[0].ref_name%>"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label name="contact number" >Contact Number</label>
+                            <input name="contact_number" type="text" class="form-control" id="contact_no1" value="<%= refrences[0].contact_no%>"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="relation">Relation</label>
+                            <input type="text" name="relation" class="form-control" id="relation1" value="<%= refrences[0].relation%>"/>
+                           
+                        </div>
+                    </div>
+
+                    <%}else{%>
+                        <div class="row">
+                        <div class="col-md-4">
+                            <label name="name" >Name</label>
+                            <input name="ref_name" type="text" 
+                            id="name1" class="form-control" />
+                        </div>
+                        <div class="col-md-4">
+                            <label name="contact number" >Contact Number</label>
+                            <input name="contact_number" type="text" class="form-control" id="contact_no1"/>
+                            <p class="ref_val1"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="relation">Relation</label>
+                            <input type="text" name="relation" class="form-control" id="relation1"/>
+                            <p class="ref_val1"></p> 
+                        </div>
+                    </div>
+                        <%}%> 
+
+
+                        <% if(refrences[1]){%>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label name="name" >Name</label>
+                            <input name="ref_name" type="text" 
+                            id="name1" class="form-control" value="<%= refrences[1].ref_name%>"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label name="contact number" >Contact Number</label>
+                            <input name="contact_number" type="text" class="form-control" id="contact_no1" value="<%= refrences[1].contact_no%>"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="relation">Relation</label>
+                            <input type="text" name="relation" class="form-control" id="relation1" value="<%= refrences[1].relation%>"/> 
+                        </div>
+                    </div>
+                    <%}else{%>
+                        <div class="row">
+                        <div class="col-md-4">
+                            <label name="name" >Name</label>
+                            <input name="ref_name" type="text" 
+                            id="name1" class="form-control"/>
+                            <p class="ref_val1"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label name="contact number" >Contact Number</label>
+                            <input name="contact_number" type="text" class="form-control" id="contact_no1"/>
+                            <p class="ref_val1"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="relation">Relation</label>
+                            <input type="text" name="relation" class="form-control" id="relation1"/>
+                            <p class="ref_val1"></p> 
+                        </div>
+                    </div>
+                        <%}%> 
+
+
+                        <% if(refrences[2]){%>
+                        <div class="row">
+                        <div class="col-md-4">
+                            <label name="name" >Name</label>
+                            <input name="ref_name" type="text" 
+                            id="name1" class="form-control" value="<%= refrences[2].ref_name%>"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label name="contact number" >Contact Number</label>
+                            <input name="contact_number" type="text" class="form-control" id="contact_no1" value="<%= refrences[2].contact_no%>"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="relation">Relation</label>
+                            <input type="text" name="relation" class="form-control" id="relation1" value="<%= refrences[2].relation%>"/>
+                        </div>
+                    </div>
+                    
+                    <%}else{%>
+                        <div class="row">
+                        <div class="col-md-4">
+                            <label name="name" >Name</label>
+                            <input name="ref_name" type="text" 
+                            id="name1" class="form-control"/>
+                            <p class="ref_val1"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label name="contact number" >Contact Number</label>
+                            <input name="contact_number" type="text" class="form-control" id="contact_no1"/>
+                            <p class="ref_val1"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="relation">Relation</label>
+                            <input type="text" name="relation" class="form-control" id="relation1"/>
+                            <p class="ref_val1"></p> 
+                        </div>
+                    </div>
+                        <%}%> 
+
+               
+                </div>
+
+            </fieldset>
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------------------- -->
+      <div class="row">
+        <div class="col">
+            <fieldset>
+                <legend>Prefrences</legend>
+                <div class="container">
+                    <div class="row">
+
+
+                        <div class="col-md-4">
+                            <label for="prefred location" >Prefred Location</label>
+                            <select name="prefred_location" id="prefred_location"  class="form-control">
+                            <option value="surat" <% if(prefrences[0].prefred_location=='surat'){%>  selected <%}%>>Surat</option>
+                            <option value="pune"  <% if(prefrences[0].prefred_location=='pune'){%>  selected <%}%>>Pune</option>
+                            <option value="ahmedabad"  <% if(prefrences[0].prefred_location=='ahmedabad'){%>  selected <%}%>>Ahmedabad</option>
+                            <option value="banglore "  <% if(prefrences[0].prefred_location=='banglore'){%>  selected <%}%>>Banglore</option>
+                            </select>
+                        </div>
+
+
+                        <div class="col-md-4">
+
+                            <label for="notice_period ">Notice Period </label>
+                            <input type="text" name="notice_period" class="form-control" id="notice_period" value="<%=prefrences[0].notice_period%>"/>
+                             <br>
+
+                            <label for="expected ctc">Expected CTC</label>
+                            <input type="text" name="expected_ctc" class="form-control" id="expected_ctc" value="<%=prefrences[0].expected_ctc%>" />
+                            
+                            <br>
+                            <label for="current ctc">Current CTC</label>
+                            <input type="text" name="current_ctc" class="form-control" id="current_ctc" value="<%=prefrences[0].current_ctc%>"/>
+                            
+                            <br>
+
+
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <label for="department" >Department</label> 
+                            <select name="department" id="department" class="form-control">
+                            <option value="development" <% if(prefrences[0].department=='development'){%>  selected <%}%>>development</option>
+                            <option value="design" <% if(prefrences[0].department=='design'){%>  selected <%}%>>Design</option>
+                            <option value="marketing "  <% if(prefrences[0].department=='marketing'){%>  selected <%}%>>Marketing</option>
+                            </select>
+                        </div>
+
+
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+     </div>
+ 
+        
+
+       <!-- ------------------------------------------      -->
+    </div>
+    
+    
+    <center> <input type="submit" value="Submit" class="btn btn-secondary btn-lg"> </center>
+</form>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+          background-color:#c2c2ee;
+          font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 20px;
+          text-align: center;
+        }
+
+        table,
+        table td,
+        table th{
+            border: 2px solid black;
+        }
+
+        #text{
+            min-width: 400px;
+            min-height: 50px;
+            background-color: #c2c2ee;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 15px;
+            color: black;
+            font-weight: bolder;
+
+        }
+        div.text{
+            width: 400px;
+            overflow-x: scroll;
+        }
+
+        .table-info table{
+            margin: 0 auto ;
+        }
+        .text{
+            margin: 0 auto;
+        }
+
+        .search-box{
+            margin-top: 20px;
+        }
+        .table-info{
+            margin-top: 20px;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+ 
+
+    <div class="intro">
+        <H2>Parth Patil</H2>
+        <h4>Delimeter Paramater Search</h4>
+    </div>
+    <div class="table-info">
+    <table>
+        <tr class="table-row">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>state</th>
+            <th>City</th>
+
+        </tr>
+        <tr class="table-data">
+             <td>_</td>    
+             <td>^</td>
+             <td>$</td>
+             <td>;</td>
+             <td>}</td>
+             <td>{</tr>
+        </tr>
+    </table>
+
+
+    <div class="search-box">
+        <form action="/delimeter" method="post" id="form">
+        <label for="id">Query:- &nbsp;</label>
+        <div class="text">
+        <input type="text" name="id" id="text" value="<%= p %>"></div>
+        <input type="submit" value="submit">
+    </form>
+    </div>
+
+
+    <table class="table-info">
+        <tr>
+            <th>Student ID</a></th> 
+            <th>Firstname</a></th>
+            <th>Middle name</a></th>
+            <th>LastName</a></th>
+            <th>Date of Birth</th>
+            <th>Contact Number</a></th>
+            <th>Email</a></th>
+            <th>Address</a></th>
+            <th>City</a></th>
+            <th>State</a></th>
+            <th>Country</a></th>
+            <th>Zipcode</a></th>
+            <th>Blood Group</a></th>
+            <th>Created Date</a></th>
+        </tr>
+
+        <% user.forEach(function(data) { %>
+        <tr>
+                <td><%=data.stu_id%></td>    
+                <td><%=data.fname%></td>
+                <td><%=data.mname%></td>
+                <td><%=data.lname%></td>
+                <td><%=data.dob%></td>
+                <td><%=data.contact_no%></td>
+                <td><%=data.email%></td>
+                <td><%=data.address%></td>
+                <td><%=data.city%></td>
+                <td><%=data.state%></td>
+                <td><%=data.country%></td>
+                <td><%=data.zipcode%></td>
+                <td><%=data.blood_group %></td>
+                <td><%=data.created_date %></td>
+            </tr>
+            <% }) %>
+    </table>
+
+</body>
+</html>

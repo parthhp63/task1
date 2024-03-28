@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUKUKUBE Game</title>
+
+    <style>
+            body{
+                background-color: rgb(15, 15, 15);
+               color:whitesmoke ; 
+            }
+            h2{
+                text-align: center;
+            }
+
+            td{
+                border: 2px solid rgb(5, 209, 245);
+                border-radius: 4px;
+            }
+            #scoremenu{
+                border:  2px solid rgb(5, 209, 245);
+                border-radius: 4px;
+                max-width: 90px;
+                size: 20px;
+            }
+            #scoremenu{
+                text-align: center;
+                border: 3px solid white;
+
+            }
+    </style>
+
+
+</head>
+<body>
+
+    <h2 class="details">Emp Name: Parth Patil 05/02/2024 24DEV014 </h2>
+    <h2 class="details">KUKUKUBE Game</h2>
+     <center> <div id="scoremenu">
+        <div id="score" >Score:0</div>
+        <div id="time">Time:20</div>
+    </div></center>
+
+    <center><table style="height: 600px; width: 600px;" id="table1">
+        <tr>
+            <td  style="background-color: rgba(231, 0, 0, 1);" ></td>
+            <td style="background-color: rgba(231, 0, 0, 1);"></td>
+        </tr>
+        <tr>
+            <td onclick="game()" style="background-color: rgba(231, 0, 0, 0.5);"></td>
+            <td style="background-color: rgba(231, 0, 0, 1);"></td>
+        </tr>
+
+    </table></center>
+
+
+    <!-- Javascript form here  -->
+    <script>
+        var allcells;
+        var randcell;
+
+        function game(){
+            addRowColfirst();
+            change_color();
+            last_step();
+        }
+        var score=0;
+        time=20;
+        
+        setInterval(function(){
+            time--;
+            document.getElementById("time").innerHTML='Time:' + time;
+            if(time==0){
+                alert('Final Score is:'+score);
+                score=0;
+                time=20;
+                location.reload()
+            }
+        },1000)
+
+
+       // add row and column for the first time
+
+       function addRowColfirst(){
+            var table=document.getElementById("table1");
+            var rowcount=table.rows.length;
+            var colcount=table.rows[0].cells.length;
+
+            
+            var rows=table.insertRow(rowcount);
+            for(let i=0; i<colcount; i++){
+                let newcell=rows.insertCell(i);
+            }
+
+
+           var colcount=table.rows[0].cells.length;
+            var rowcount=table.rows;
+             var cell;
+            for(let i=0; i<rowcount.length; i++){
+                cell=rowcount[i].insertCell(colcount);
+            }
+
+            score++;
+            document.getElementById("score").innerHTML='score:'+ score;
+       }
+
+
+       // for changing color
+       function change_color(){
+        var x=Math.floor(Math.random()*256);
+        var y=Math.floor(Math.random()*256);
+        var z=Math.floor(Math.random()*256);
+        var bgcolor="rgb("+x+ "," +y+ "," +z+ ")";
+
+        var cell=document.getElementsByTagName("td");
+        for(var i=0; i<cell.length; i++){
+            cell[i].style.backgroundColor=bgcolor;
+        }
+       }
+
+       function last_step(){
+          allcells=document.getElementsByTagName("td");
+          randcell=allcells[Math.floor(Math.random()*allcells.length)];
+          randcell.style.opacity="0.5"  
+          randcell.setAttribute("onclick","final_row_col()")
+       }
+
+       function final_row_col(){
+           
+           randcell.style.opacity="100"
+           randcell.setAttribute("onclick","")
+           
+           var table=document.getElementById("table1");
+            var rowcount=table.rows.length;
+            var colcount=table.rows[0].cells.length;
+
+            
+            var rows=table.insertRow(rowcount);
+            for(let i=0; i<colcount; i++){
+                let newcell=rows.insertCell(i);
+            }
+
+
+           var colcount=table.rows[0].cells.length;
+            var rowcount=table.rows;
+             var cell;
+            for(let i=0; i<rowcount.length; i++){
+                cell=rowcount[i].insertCell(colcount);
+            }
+
+            score++;
+            document.getElementById("score").innerHTML='score:'+ score;
+            change_color();
+            last_step();
+       }
+    </script>
+</body>
+</html>

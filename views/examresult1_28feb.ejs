@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Details</title>
+
+    <style>
+        body{
+            justify-content: center;
+            text-align: center  ;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        table{
+            background-color: black;
+            color: white;
+            text-align: center;
+
+             margin-left: 21%;
+             margin-top: 21px;
+        }
+        table,
+        table th,
+        table td{
+            border: 1px solid white;
+        }
+        .details{
+            text-align: center;
+        }
+        #link a{
+            color: white;
+        }
+        #link:hover{
+            color: white;
+            cursor: pointer;
+        }
+ 
+
+    </style>
+</head>
+<body>
+  
+    <div class="details">
+        <h1>Parth Patil</h1>
+        <h2>Exam Result.</h2>
+    </div>
+
+    <div class="flex">
+        <% if(currentno==1){%>
+            <a href="/firstp_result"><input type="button" value="<<" disabled></a>
+            <a href="/previousp_result"><input type="button" value="<" disabled></a>
+        <% } else{ %>
+            <a href="/firstp_result"><input type="button" value="<<" ></a>
+            <a href="/previousp_result"><input type="button" value="<" ></a>
+        <% } %>
+
+          <span id="current_p"><%= currentno  %></span>
+          <% if(currentno==10){%>
+            <a href="/nextp_result"><input type="button" value=">" disabled></a>
+            <a href="/lastp_result"><input type="button" value=">>" disabled></a>
+         <% } else{ %>
+            <a href="/nextp_result"><input type="button" value=">" ></a>
+             <a href="/lastp_result"><input type="button" value=">>" ></a>
+         <% } %>
+
+    <table> 
+        <tr>
+          <th rowspan="2">Student ID</th>
+          <th rowspan="2">First Name</th>
+          <th rowspan="2">Last Name</th>
+          <th colspan="2">Terminal</th>
+          <th colspan="2">Prelim</th>
+          <th colspan="2">Final</th>
+          <th rowspan="2">Total Marks &nbsp;<br>(out of 250)</th>
+          <th rowspan="2">Report</th>
+        </tr>
+        <tr>
+           <th colspan="1">Practical</th>
+           <th colspan="1"> Theory</th>
+           <th colspan="1">Practical</th>
+           <th colspan="1"> Theory</th>
+           <th colspan="1">Practical</th>
+           <th colspan="1"> Theory</th> 
+        </tr>
+
+
+            
+                <% for(let i=0; i<data.length; i+=3) {%>
+                    <tr id="perrow">
+                    <td> <%= data[i].stu_id  %></td>
+                    <td> <%= data[i].fname  %></td>
+                    <td> <%= data[i].lname  %></td>
+                      <% let total=0; %>
+                    <% for(let j=i;j<3+i;j++){ %>
+                        <td> <%= data[j].pr %></td>
+                        <td> <%= data[j].tlastp_resultr %></td>
+                         <% total=total+data[j].pr+data[j].tr %>
+                    <% } %>
+
+                    <td><%=total %></td>
+                     <td id="link"><a href="/new/<%=  data[i].stu_id %>" target="_blank" >Details</a></td>
+                </tr>
+                <%}%>
+             
+
+
+
+
+
+
+
+
+    </table>
+
+</body>
+</html>

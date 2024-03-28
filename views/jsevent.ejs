@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table{
+                border: 2px solid black;
+                margin-top: 3%;
+                align-items:center;
+
+            }
+        </style>
+         
+        <script>
+            function blurfirst(){
+                alert("onblur event  occured")
+            }
+            function clickevent(){
+                alert("onclick event occured")
+            }
+            function focuson(){
+                alert("on focus event occured")
+            }
+            function changeevent(){
+                alert("on change event occured")
+            }
+            function cutevent(){
+                alert("cut event occured")
+            }
+            function dragevent(){
+                alert("ondrag event occured")
+            } 
+            function canplaythrough(){
+                alert("Video can be played without buffering")
+            }
+            function inputevent(){
+                let text = document.getElementById("inpute").value;
+                document.getElementById("written").innerHTML = "You wrote: " + text;
+            }
+            function ondoubleclick(){
+                alert("ondoubleclick event occored")
+            }
+            function mouseup(){
+                document.getElementById("mouseupdown").style.color="red";
+            }
+            function mousedown(){
+                document.getElementById("mouseupdown").style.color="yellow";
+            }
+            function pauseon(){
+                alert("onpause event occured")
+            }
+            function toggle(){
+                alert("toggle event occured")
+            }
+            function load(){
+                alert("the onload event is triggered")
+            }
+            function resize(){
+                alert("the window is resized")
+            }
+            function playon(){
+                alert("the playon event is triggered")
+            }
+            function playingon(){
+                document.getElementById("playing").innerHTML += "The video is playing. ";
+            }
+            function infocus(x){
+                x.style.background = "yellow";
+            }
+            function scrollon(){
+                alert("you have scrolled the box!")
+            }
+            function printevent(){
+                alert("Print event occured")
+             }
+             function resetevent(){
+                alert("the form was reset ")
+             }        
+        </script>
+    </head>
+
+
+    <body onload="load()" onresize="resize()" onafterprint="printevent()">
+        <table cellspacing="0" cellpadding="60"  align="center"> 
+            <tr>    
+                <td style="background-color: rgb(8, 215, 230);">
+                 <input type="text" onblur="blurfirst()" size="4" ><br>
+                 on blur event
+                </td>  
+
+                <td onclick="clickevent()"> on click event</td>
+
+                <td style="background-color: rgb(8, 215, 230);" >
+                    <input type="text" onfocus="focuson()" size="8" ><br>
+                    on focus event
+                </td>
+
+                <td>
+                    <select name="onchange" onchange="changeevent()"> 
+                        <option value="parth">Parth</option>
+                        <option value="mohit">Mohit</option>
+                        <option value="jayesh">jayesh</option>
+                        <option value="vahid">Vahid</option>
+                    </select> <br>change event
+                </td>
+
+                <td style="background-color: rgb(8, 215, 230);">
+                 <input type="text" oncut="cutevent()" value="cut event "> <br>cut event
+                </td>
+
+                <td>
+                    <input type="text" ondrag="dragevent()" value="drag event "> <br>drag event
+                </td>
+            </tr>
+
+            <tr>
+                <td >
+                    <video controls oncanplaythrough="canplaythrough()">
+                        <source src="https://www.w3schools.com/jsref/mov_bbb.mp4" type="video/mp4">
+                        
+                    </video>
+                </td>
+
+                <td style="background-color: rgb(8, 215, 230);">
+                  <input type="text" name="input" oninput="inputevent()" id="inpute">
+                  <p id="written"></p>
+                </td>
+
+                <td>
+                    <p ondblclick="ondoubleclick()">Double click event</p>
+                </td>
+                
+                <td style="background-color: rgb(8, 215, 230);">
+                    <p id="mouseupdown" onmouseup="mouseup()" onmousedown="mousedown()">Click for mouse up and down event together</p>
+                </td>
+                
+                <td>
+                   <video controls onpause="pauseon()">
+                      <source src="https://www.w3schools.com/jsref/movie.mp4" type="video/mp4">
+                    </video>   onpause event 
+                </td>
+                
+                <td style="background-color: rgb(8, 215, 230);">
+                  <details ontoggle="toggle()"> 
+                    <summary>Welcome to on toggle</summary>
+                    <P>this is on toggle event</P>
+                  </details>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td style="background-color: rgb(8, 215, 230);">
+                    <video controls onplay="playon()">
+                        <source src="https://www.w3schools.com/jsref/movie.mp4" type="video/mp4">
+                      </video> playon event
+                </td>
+
+                <td>
+                    <video controls onplaying="playingon()">
+                        <source src="https://www.w3schools.com/jsref/movie.mp4" type="video/mp4">
+                      </video>
+                    <p id="playing"></p>
+                </td>
+
+                <td style="background-color: rgb(8, 215, 230);">
+                    <p> onfocusin event</p>
+                   <input type="text" onfocusin="infocus(this)" >
+                </td>
+
+                <td>
+                    <form action="">
+                        description: <input type="text" oninvalid="alert('the form must be filled')" name="description" required>
+                    </form>
+                </td>
+
+                <td style="background-color: rgb(8, 215, 230);">
+                    <div onscroll="scrollon()" style="border: 1px solid black; width: 200px; height: 100px; overflow: scroll;">
+                        In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since.
+                        <br><br>
+                        'Whenever you feel like criticizing anyone,' he told me, just remember that all the people in this world haven't had the advantages that you've had.
+                    </div>
+                </td>
+
+                <td >
+                    <form action="" onreset="resetevent()">
+                        First Name: <input type="text">
+                        <input type="reset">
+                    </form>    
+                </td>
+
+            </tr>
+
+            <tr>
+                <td ></td>
+                <td style="background-color: rgb(8, 215, 230);"></td>
+                <td></td>
+                <td style="background-color: rgb(8, 215, 230);"></td>
+                <td></td>
+                <td style="background-color: rgb(8, 215, 230);"></td>
+
+            </tr>
+
+             
+
+        </table>
+    </body>
+</html>

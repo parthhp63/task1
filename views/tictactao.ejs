@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+                                body{
+                background-color: rgb(15, 15, 15);
+               color:whitesmoke ; 
+               text-align: center;
+               justify-content: center;
+            }
+
+            td{
+                border: 2px solid  white ;
+                border-radius: 4px;
+                background-color: rgb(8, 215, 230);
+            }
+            h2{
+                text-align: center;
+            }
+            .parth{
+                font-size: 30px;
+                color: rgb(233, 3, 3);
+            }
+            button{
+                height: 100px;
+                width: 250px;
+                font-size: 40px;
+                border: 2px solid #e11616;
+                border-radius: 4px;
+            }
+
+            #winstatus{
+                text-align: center;
+                font-size: 30px;
+                color: rgb(11, 220, 248);
+                border: 3px solid #e11616;
+                border-radius: 4px;
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+        <h2>Emp Name: Parth Patil</h2>
+        <h2>date:05/02/2024</h2>
+        <h2>Emp Id: 24DEV014</h2>
+        <h2> Tic Tac Tao Game</h2>
+
+
+        <div id="inner">
+        <div>
+        <table cellspacing="5" cellpadding="50" align="center" id="table1">
+            <tr>
+                <td id="1" class="parth" onclick="clicked(this)"></td>
+                <td id="2" class="parth" onclick="clicked(this)"></td>
+                <td id="3" class="parth" onclick="clicked(this)"></td>
+            </tr>
+            <tr>
+                <td id="4" class="parth" onclick="clicked(this)"></td>
+                <td id="5" class="parth" onclick="clicked(this)"></td>
+                <td id="6" class="parth" onclick="clicked(this)"></td>
+            </tr>
+            <tr>
+                <td id="7" class="parth" onclick="clicked(this)"></td>
+                <td id="8" class="parth" onclick="clicked(this)"></td>
+                <td id="9" class="parth" onclick="clicked(this)"></td>
+            </tr>
+        </table>
+        <center><div id="winstatus"></div> </center>
+        </div>
+
+        <h2 class="status"></h2>
+
+        <center> <button onclick="location.reload()" >Reset</button>  </center>
+
+        </div>
+         
+
+
+
+
+        <script>
+        
+        var count =0;
+
+        function clicked(result){
+            var store=result;
+
+            if (store.innerHTML=="X" || store.innerHTML=="O"){
+                alert("Enter another position");
+            }
+            else{
+
+                if(count %2==0){
+                    store.innerHTML="O";
+                }
+                else{
+                    store.innerHTML="X";
+                }
+                count++;
+             }
+
+
+
+        if(
+            (document.getElementById("1").innerHTML=="O" && document.getElementById("2").innerHTML=="O" && document.getElementById("3").innerHTML=="O")||
+            (document.getElementById("4").innerHTML=="O" && document.getElementById("5").innerHTML=="O" && document.getElementById("6").innerHTML=="O")||
+            (document.getElementById("7").innerHTML=="O" && document.getElementById("8").innerHTML=="O" && document.getElementById("9").innerHTML=="O")||
+            (document.getElementById("1").innerHTML=="O" && document.getElementById("4").innerHTML=="O" && document.getElementById("7").innerHTML=="O")||
+            (document.getElementById("2").innerHTML=="O" && document.getElementById("5").innerHTML=="O" && document.getElementById("8").innerHTML=="O")||
+            (document.getElementById("3").innerHTML=="O" && document.getElementById("6").innerHTML=="O" && document.getElementById("9").innerHTML=="O")||
+            (document.getElementById("1").innerHTML=="O" && document.getElementById("5").innerHTML=="O" && document.getElementById("9").innerHTML=="O")||
+            (document.getElementById("3").innerHTML=="O" && document.getElementById("5").innerHTML=="O" && document.getElementById("7").innerHTML=="O")){
+                //alert("O Wins");  
+                document.getElementById("winstatus").innerHTML="Player O Wins";
+                document.getElementById("table1").style.pointerEvents="none";
+            }
+
+        else if (
+            (document.getElementById("1").innerHTML=="X" && document.getElementById("2").innerHTML=="X" && document.getElementById("3").innerHTML=="X")||
+            (document.getElementById("4").innerHTML=="X" && document.getElementById("5").innerHTML=="X" && document.getElementById("6").innerHTML=="X")||
+            (document.getElementById("7").innerHTML=="X" && document.getElementById("8").innerHTML=="X" && document.getElementById("9").innerHTML=="X")||
+            (document.getElementById("1").innerHTML=="X" && document.getElementById("4").innerHTML=="X" && document.getElementById("7").innerHTML=="X")||
+            (document.getElementById("2").innerHTML=="X" && document.getElementById("5").innerHTML=="X" && document.getElementById("8").innerHTML=="X")||
+            (document.getElementById("3").innerHTML=="X" && document.getElementById("6").innerHTML=="X" && document.getElementById("9").innerHTML=="X")||
+            (document.getElementById("1").innerHTML=="X" && document.getElementById("5").innerHTML=="X" && document.getElementById("9").innerHTML=="X")||
+            (document.getElementById("3").innerHTML=="X" && document.getElementById("5").innerHTML=="X" && document.getElementById("7").innerHTML=="X")){
+               // alert("X Wins");
+                document.getElementById("winstatus").innerHTML="Player x Wins";
+                document.getElementById("table1").style.pointerEvents="none";
+            }
+        
+        else if(count==9){
+            //alert("Game Draw");
+            document.getElementById("winstatus").innerHTML="Game Draws";
+            document.getElementById("table1").style.pointerEvents="none";
+
+        }
+            
+        }
+
+        </script>
+   
+    </body>
+</html>
