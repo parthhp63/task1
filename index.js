@@ -1919,6 +1919,17 @@ app.post('/formajax/update/:id',async(req,res)=>{
  
  })
 
+  // HTML website Tasks 9Feb website.....
+  app.get('/ehyawebsite',authorization.authorization,(req,res)=>{
+   res.render('ehyawebsite_9feb.ejs')
+  })
+
+
+  // Html website awan host 12 feb.........
+  app.get('/awanhost',authorization.authorization,(req,res)=>{
+    res.render('awanhost_12feb.ejs');
+   })
+
 
    // For Logout and cookie removal process.....
   app.get('/logout',authorization.authorization,(req,res)=>{

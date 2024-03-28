@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <!-- <link rel="stylesheet" href="9feb_task2.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        *{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0%;
+    padding: 0%;
+}
+.section{
+    max-width: 1500px;
+    margin: 0 auto;
+}
+    /* .header{
+    margin: 0 auto;
+    } */
+.header-logo{
+    margin: 13px;
+}
+.header-container{
+    display: flex;
+    margin: 32px auto;
+    max-width: 1500px;
+}
+
+.header-items-list{
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 20px;
+
+}
+.header-items-list li{
+    display: inline;
+    padding-right: 40px;
+}
+
+
+
+.header-items-list li a{
+    text-decoration: none;
+    color:#1565D8;
+}
+
+.header-items{
+    display: flex;
+     width: 100%;
+    flex-direction: row-reverse;
+}
+.header-items-list button{
+    background-color: whitesmoke;
+    color: #1565D8;
+    
+}
+
+.header-items-list button:hover{
+    background-color: #00e6d2;
+}
+
+#login{
+    font-family: sans-serif;
+    color: #1565D8;
+    border: 2px solid #1565D8;
+    padding: 11px;
+    margin-left: 3px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    width: 125px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+/* page 1 from here  */
+.page1{
+    display: flex;
+    color: #183B56;
+    font-family: sans-serif;
+}
+
+.page1-data{
+    margin: 6%;
+}
+.page1-data h2{
+    font-size: 65px;
+}
+
+.page1-data p{
+    font-size: 26px;
+}
+
+#getconsultant{
+    font-family: sans-serif;
+    color: white;
+    border: 2px solid #1565D8;
+    padding: 10px;
+    margin-left: 3px;
+    border-radius: 6px;
+    background-color: #1565D8;
+    width: 166px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+   /* page 2 from here  */
+
+   .section-first{
+    background-color: #F3F7FD;
+   }
+
+.page2{
+
+    font-family: sans-serif ;
+    padding-top: 60px;
+}
+
+.page2-heading1{
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
+    margin-top: 3.5%;
+}
+.page2-heading,
+.page2-heading1{
+    text-align: center;
+}
+.page2-heading1-det{
+    margin-right: 8%;
+}
+
+.page2-heading2{
+    display: flex;
+    margin-left: 37px;
+    margin-right: 36px;
+
+}
+.page2-heading h4{
+    color: green;
+}
+.page2-heading h2{
+    font-size: 29px;
+    color: #183B56;
+}
+
+.page2-heading p{
+    font-size: 19px;
+    color: #183B56;
+}
+.mark{
+    font-size: 15px;
+    color: #36B37E;
+    border: 1px solid #36B37E;
+    border-radius: 50%;
+    padding: 2px;
+    background-color: #bbebd7;
+    margin: 2px;
+}
+.page2-heading2-det{
+    border: 2px solid #F3F7FD;
+    background-color: white;
+    border-radius: 11px;
+    width: calc(100%/3);
+    margin: 55px 40px;
+
+} 
+
+.page2-icon{
+    padding: 10px;
+
+}
+
+.page2-heading1-det{
+    font-size: 20px;
+}
+.page2-icon img{
+    BORDER: 2px solid lightblue;
+    margin: 19px;
+}
+
+
+.page2-details{
+    padding: 10px;
+}
+
+.page2-link{
+    padding: 15px;
+}
+
+.page2-details h3{
+    font-size: 32px;
+}
+
+.page2-details p{
+    font-size: 25px;
+}
+
+.page2-link a{
+    text-decoration: none;
+    color: darkblue;
+    font-size: 20px;
+}
+.page2-heading p{
+    margin-left: 347px;
+    max-width: 745px;
+
+}
+
+/* page 3 */
+.page3{
+    margin-top: 4%;
+    font-family: sans-serif;
+}
+
+.page3-heading1 h4{
+    color: green;
+}
+
+.page3-heading1 h2{
+    font-size: 35px;
+    color: #183B56;
+}
+
+.page3-heading1 p{
+    font-size: 20px;
+    color:#183B56 ;
+}
+.page3-heading2-det-img img{
+    box-shadow:inse t 0 -200px 700px 0 black;
+}
+.page3-heading2{
+    display: flex;
+}
+
+.page3-heading2-det{
+    position: relative;
+}
+.page3-heading2-data{
+    position:absolute;
+    bottom: 0;
+    padding: 30px;
+}
+
+.page3-heading1{
+   text-align: center;
+}
+
+.page3-heading2{
+    justify-content: center;
+    margin: 3%;
+}
+
+.page3-heading2-det{
+    margin-left: 2%;
+    margin-right: 0%;
+}
+
+.page3-heading2-data{
+    font-size: 35px;
+    color: white;
+    font-weight: 200;
+
+}
+#page3-heading2-data1{
+    margin-bottom: -7px;
+}
+
+
+/* page 4 */
+
+.page4{
+    font-family: sans-serif;
+    MARGIN-TOP: 5%;
+}
+.page4-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.page4-items{
+    width: calc(100%/3);
+    margin-bottom: 42px;
+}
+#page4-items1{
+    font-size: 15px;
+    color: green;
+}
+#page4-items2{
+font-size: 31px;
+color: #183B56;
+}
+.page4-items-logo img{
+    border: 2px solid lightblue;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.page4-items-data h3{
+    color:rgb(66, 63, 63);
+    font-size: 23px;
+}
+.page4-items-data p{
+    color: #183B56;
+    font-size: 20px;
+}
+
+/* page 5 */
+
+.page5{
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.page5-item3-data,
+.page5-item3-data,
+.page5-item6-data{
+    color: #183B56;
+    font-size: 20px;
+
+}
+.page5-items{
+    /* margin: 25px; */
+    /* max-width: 500px; */
+    margin-right: 10%;
+
+
+}
+
+.page5-itme1-logo,
+.page5-item6-logo{
+    margin-top: 32px;
+}
+
+
+.hrline{
+height: 154px;
+
+transform: rotate(45deg);
+margin-top: 1%;
+opacity: 0.2;
+}
+
+
+
+/* footer */
+.footer{
+    max-width: 1500px;
+    margin: 0 auto;
+
+}
+.section-last{
+    background-color: #0D2436;
+}
+
+.page6{
+    display: flex;
+    /* text-align: center; */
+    padding-top: 3%;
+    padding-bottom:1%;
+}
+
+.footer1-data{
+    font-size: 18px;
+    color: #5a7184;
+    padding-right: 30%;
+}
+
+.bi{
+    color: #5a7184;
+    padding: 2%;
+}
+
+
+.footer2-data h2{
+color: white;
+font-family: sans-serif;
+padding-right: 37%;
+font-size: 32px;
+margin-top: 0%; 
+}
+
+.footer2{
+    margin-left: 8%;
+}
+
+#email{
+    /* height: 44px; */
+    padding: 17px;
+    width: 288px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#getbutton{
+font-family: sans-serif;
+color: white;
+padding: 14px;
+margin-left: 3px;
+border-radius: 6px;
+background-color: #1565d8;
+width: 146px;
+font-size: 15px;
+font-weight: 600;
+cursor: pointer;
+}
+
+#copyright{
+    color: #5a7184;
+    font-size: 17px;
+    padding: 32px;
+}
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="header-container">
+        <div class="header-logo" id="header-logo"> 
+            <img src="/images/Logo.svg" alt="">
+        </div>
+        <div class="header-items">
+            <ul class="header-items-list">
+              <li><a href="">Home</a></li>
+               <li><a href="">Landings</a></li>
+              <li><a href="">Pages</a></li>
+                <li><a href="">Docs</a></li>
+                <li><a href="">Help</a></li>
+                <li><button id="getitnow">Get it Now</button></li>
+            </ul>
+        </div>
+    </div>
+    </section>
+    
+    <!-- page 1 -->
+   <section class="section">
+    <div class="page1">
+        <div class="page1-photo">
+            <img src="/images/Hero.png" alt="">
+        </div>
+        <div class="page1-data">
+           <h2>Make your new Like  happier.</h2>
+           <p>We work with several leading insurance companies  to 
+              secure insurance coverage tailoreed to meet your needs.</p>
+            <button id="getconsultant">Get a Consultation</button>
+        </div>
+    </div>
+   </section>
+
+   <!-- page 2 -->
+   <div class="section-first">
+    <section class="section">
+    <div class="page2">
+        <div class="page2-heading">
+            <h4>OUR SERVICES</h4>
+            <h2>Insurance made simple for you</h2>
+            <p>We work with several leading insurance companies to secure insurance  covrages tailored to meet your needs.</p>
+        </div>
+        <div class="page2-heading1">
+            <div class="page2-heading1-det"> <span class="mark"> &#x2713;</span>Flexible Products to make your life easier</div>
+            <div class="page2-heading1-det"><span class="mark"> &#x2713;</span> Highest standards of service</div>
+            <div class="page2-heading1-det"> <span class="mark"> &#x2713;</span> Fast and reliable service</div>
+        </div>
+
+        <div class="page2-heading2">
+            <div class="page2-heading2-det">
+                <div class="page2-icon"><img src="/images/Icon_Home.svg" alt=""></div>
+                <div class="page2-details">
+                    <h3>Home insurance</h3>
+                    <p>Home insurance is a type of <br> insurance policy that provides <br>cover for your home.</p>
+                </div>
+                <div class="page2-link">
+                    <a href="">Learn more &#8594;</a>
+                </div>
+            </div>
+
+            <div class="page2-heading2-det">
+                <div class="page2-icon"><img src="/images/Icon_Blood_Donation.svg" alt=""></div>
+                <div class="page2-details">
+                    <h3>Life insurance</h3>
+                    <p>Helping you bridge gaps in your <br> health acre coverage during <br>times of transiton.</p>
+                </div>
+                <div class="page2-link">
+                    <a href="">Learn more &#8594;</a>
+                </div>
+            </div>
+
+            <div class="page2-heading2-det">
+                <div class="page2-icon"><img src="/images/Icon_Home.svg" alt=""></div>
+                <div class="page2-details">
+                    <h3>Car insurance</h3>
+                    <p>Car insurance is a type of <br> insurance policy that provides <br>cover for your car.</p>
+                </div>
+                <div class="page2-link">
+                    <a href="">Learn more &#8594;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+    <!-- page 3 -->
+
+    <section class="section">
+        <div class="page3">
+            <div class="page3-heading1">
+                <h4>OUR TIPS FOR YOU</h4>
+                <h2>Reinventing your protection</h2>
+                <p>We share common trends, strategies ideas, opinions, short & long <br>stories from the team behind company.</p>
+            </div>
+            <div class="page3-heading2">
+                <div class="page3-heading2-det" > <img class="page3-heading2-det-img" src="/images/Image.png" alt="">
+                    <p class="page3-heading2-data" id="page3-heading2-data1">How to prevent and protect <br>your family from carbon <br>monoxide</p>
+                </div>
+                <div class="page3-heading2-det" ><img class="page3-heading2-det-img" src="/images/Image2.png" alt="">
+                    <p class="page3-heading2-data">Motherhood is the hardest <br>and the best job ever</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- page 4 -->
+    <section class="section">
+        <div class="page4">
+            <div class="page4-container">
+                <div class="page4-items">
+                    <h4 id="page4-items1">YOUR BENEFITS </h4>
+                    <h2 id="page4-items2">We're your right <br>insurance advocate</h2>
+                </div>
+
+                <div class="page4-items">
+                    <div class="page4-items-logo">
+                        <img src="/images/Donation.svg" alt="">
+                    </div>
+                    <div class="page4-items-data">
+                        <h3>We have the best prices</h3>
+                        <p>Our insurance plans offers are priced <br>the same everywhere else. We just make <br>them easier for you to find.</p>
+                    </div>
+                </div>
+
+                <div class="page4-items">
+                    <div class="page4-items-logo">
+                        <img src="/images/Icon_Protection.svg" alt="">
+                    </div>
+                    <div class="page4-items-data">
+                        <h3>We're your insurance advocate</h3>
+                        <p>We will deal with the insurance <br>companies for you, even after you've <br>bought your plan</p>
+                    </div>
+                </div>
+
+                <div class="page4-items">
+                    <div class="page4-items-logo">
+                        <img src="/images/Icon_Neutron.svg" alt="">
+                    </div>
+                    <div class="page4-items-data">
+                        <h3>We're unbaised</h3>
+                        <p>Our online tools help you decide what <br>product is best for you. We're here to <br>insurance plan you choose.</p>
+                    </div>
+                </div>
+
+                <div class="page4-items">
+                    <div class="page4-items-logo">
+                        <img src="/images/Icon_CS.svg" alt="">
+                    </div>
+                    <div class="page4-items-data">
+                        <h3>We're avilable 24/7</h3>
+                        <p>we have your back 24/7 betweem our <br>online chat function, email and <br>telephone support.</p>
+                    </div>
+                </div>
+
+                <div class="page4-items">
+                    <div class="page4-items-logo">
+                        <img src="/images/Icon_Like.svg" alt="">
+                    </div>
+                    <div class="page4-items-data">
+                        <h3>We make insurance simple</h3>
+                        <p>We're committed to making applying for <br>insurance as simple as can be for our <br>customers</p>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr style="width: 70%; opacity: 0.2; background-color: #183B56;">
+
+    <!-- page 5 -->
+
+    <section class="section">
+        <div class="page5">
+            <div class="page5-items">
+                <div class="page5-itme1-logo">
+                    <img src="/images/Avatar.png" alt="">
+                    <img src="/images/Avatar-1.png" alt="">
+                    <img src="/images/Avatar-2.png" alt="">
+                </div>
+                <div class="page5-item1-data"><p><b>Friendly </b>customer support <br>team</p></div>
+            </div>
+            <!-- <hr  class="hrline"> -->
+            <div class="page5-items">
+                <div class="page5-item2">
+                    <p> <img src="/images/Path.svg" alt="">&nbsp;Trustpilot</p>
+                </div>
+                <div class="page5-item3">
+                    <img src="/images/s.svg" alt="">
+                    <img src="/images/s.svg" alt="">
+                    <img src="/images/s.svg" alt="">
+                    <img src="/images/s.svg" alt="">
+                    <img src="/images/s.svg" alt="">
+                </div>
+                <div class="page5-item3-data"><p><b>4.6 out of 5 stars</b> from 8.6k <br>reviews.</p></div>
+            </div>
+            <!-- <hr class="hrline"> -->
+            <div class="page5-items">
+                <div class="page5-item6-logo"><img src="/images/Icon_Like.svg" alt=""></div>
+                <div class="page5-item6-data"><p>We're making <b>insurance as <br>simple as</b> can be</p></div>
+
+            </div>
+        </div>
+    </section>
+   
+    <div class="section-last">
+    <footer class="footer">
+        <div class="page6">
+            <div class="footer1">
+               <div class="footer1-logo1"><img src="/images/Logo_white.svg" alt=""></div>
+               <p class="footer1-data">Build a modern and creative website with creland</p>
+               <div class="footer1-logo">
+                <i class="bi bi-google"></i>
+                <i class="bi bi-twitter"></i>
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-linkedin"></i>
+                <i class="bi bi-youtube"></i>
+               </div>
+            </div>
+
+            <div class="footer2">
+                <div class="footer2-data">
+                    <h2>Ready to get insured? Submit your request and her back as soon as tomorrow</h2>
+                </div>
+                <div class="footer2-button">
+                    <input type="text" placeholder="Your Email" id="email">
+                    <button id="getbutton">Get started</button>
+                </div>
+                <p id="copyright"> Copyright &#169; 2019. Crafted with love.</p>
+            </div>
+            
+        </div>
+    </footer>
+    </div>
+
+
+
+ 
+</body>
+</html>
