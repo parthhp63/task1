@@ -1934,12 +1934,24 @@ app.post('/formajax/update/:id',async(req,res)=>{
   app.get('/hirex',authorization.authorization,(req,res)=>{
     res.render('hirex_13feb.ejs')
   })
+  
+  // HTML Form template
+  app.get('/form1',authorization.authorization,(req,res)=>{
+    res.render('job_application_form1.ejs')
+  })
+  
+  app.get('/form2',authorization.authorization,(req,res)=>{
+    res.render('job_application_form2.ejs')
+  })
+
 
 
    // For Logout and cookie removal process.....
   app.get('/logout',authorization.authorization,(req,res)=>{
     res.clearCookie('access_token').status(200).redirect('/login');
   })
+
+
 
 // End..................................................
 app.listen(port,()=>{
