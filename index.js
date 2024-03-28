@@ -1944,6 +1944,10 @@ app.post('/formajax/update/:id',async(req,res)=>{
     res.render('job_application_form2.ejs')
   })
 
+  app.get('/timezone',authorization.authorization,(req,res)=>{
+    res.render('timezone.ejs')
+  })
+
 
 
    // For Logout and cookie removal process.....
