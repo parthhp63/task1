@@ -1930,6 +1930,11 @@ app.post('/formajax/update/:id',async(req,res)=>{
     res.render('awanhost_12feb.ejs');
    })
 
+  // Hirex HTML template 13feb...........
+  app.get('/hirex',authorization.authorization,(req,res)=>{
+    res.render('hirex_13feb.ejs')
+  })
+
 
    // For Logout and cookie removal process.....
   app.get('/logout',authorization.authorization,(req,res)=>{
