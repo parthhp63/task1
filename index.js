@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyparser = require('body-parser');
 const mysql = require('mysql');
-const port = 9012;
+const port = 9014;
 var created_time=require('./created_time'); 
 const md5 = require('md5');
 var jwt = require('jsonwebtoken');
@@ -39,7 +39,7 @@ res.render('register.ejs')
 app.get('/checkemail/:email',(req,res)=>{
   console.log(req.params.email);
   var q17=`select count(*) as counter from user_info where email='${req.params.email}'`
-  conn.query(q17, (err, result) => {
+  connection.query(q17, (err, result) => {
     console.log(q17);
     if (err) throw err;
     else{
@@ -65,7 +65,7 @@ app.post('/submit/:code', async(req,res)=>{
 
   res.send(code);
 
-conn.query(q, (err, result) => {
+connection.query(q, (err, result) => {
   console.log(q);
   if (err) throw err;
 })
@@ -95,7 +95,7 @@ function salt(){
 
 app.get('/passwd/:actcode',(req,res)=>{
   q15=`select count(*) as counter from user_info where activation='${req.params.actcode}'`
-  conn.query(q15, (err, result) => {
+  connection.query(q15, (err, result) => {
     console.log(q15);
     if (err) throw err;
     else{
@@ -129,7 +129,7 @@ app.post('/passwd/:actcode', async(req,res)=>{
   q4= `UPDATE user_info
   SET password ='${updatedpassword}', salt = '${newsalt}',status='active'
   WHERE activation='${actcode}'; `
-  conn.query(q4, (err, result) => {
+  connection.query(q4, (err, result) => {
     console.log(q4);
     if (err) throw err;
   })
@@ -149,7 +149,7 @@ app.post('/login',(req,res)=>{
     let mix;
     let passnew;
     q7=`select * from user_info`;
-    conn.query(q7,(err,result)=>{
+    connection.query(q7,(err,result)=>{
       if(err) throw err;
       result.forEach(data => {
         if(data.email==formData.email){
@@ -197,7 +197,7 @@ app.get('/forget/:email',(req,res)=>{
   console.log('forgetemail', req.params.email);
   q17=`select count(*) as counter from user_info where email='${req.params.email}'`
   console.log(q17);
-  conn.query(q17, (err, result) => {
+  connection.query(q17, (err, result) => {
     console.log(q17);
     if (err) throw err;
     else{
@@ -231,17 +231,17 @@ app.post('/forget/:email', async(req,res)=>{
   q8= `UPDATE user_info
   SET password ='${updatedpassword}', salt = '${newsalt}',status='active'
   WHERE email='${email}'; `
-  conn.query(q8, (err, result) => {
+  connection.query(q8, (err, result) => {
     console.log(q8);
     if (err) throw err;
   })
     
 })
 
-app.get('/next',authorization.authorization,(req,res)=>{
-  res.write('login successful');
-  res.end();
-})
+// app.get('/next',authorization.authorization,(req,res)=>{
+//   res.write('login successful');
+//   res.end();
+// })
 
 ///  ALL combine projects tasks......
 
@@ -250,27 +250,27 @@ app.get('/next',authorization.authorization,(req,res)=>{
 // Database Initilization....
 
 
-app.get('/first',(req,res)=>{
+app.get('/first',authorization.authorization,(req,res)=>{
     res.render('home.ejs');
 })
 
-app.get('/dynamictable',(req,res)=>{
+app.get('/dynamictable',authorization.authorization,(req,res)=>{
     res.render('dynamictable.ejs');
 })
 
-app.get('/kukucube',(req,res)=>{
+app.get('/kukucube',authorization.authorization,(req,res)=>{
     res.render('kukucube.ejs');
 })
 
-app.get('/tictactao',(req,res)=>{
+app.get('/tictactao',authorization.authorization,(req,res)=>{
     res.render('tictactao.ejs');
 })
 
-app.get('/sorting',(req,res)=>{
+app.get('/sorting',authorization.authorization,(req,res)=>{
     res.render('sorting.ejs');
 })
 
-app.get('/jsevent',(req,res)=>{
+app.get('/jsevent',authorization.authorization,(req,res)=>{
     res.render('jsevent.ejs')
 })
 
@@ -287,7 +287,7 @@ let current=0;
 let limit=200;
 var field_name='stu_id';
 
-app.get("/studentpagination",(req,res)=>{
+app.get("/studentpagination",authorization.authorization,(req,res)=>{
     const q=`select * from student_details_26feb order by ${field_name} limit 200 OFFSET ?`;
     current=0;
 
@@ -299,7 +299,7 @@ app.get("/studentpagination",(req,res)=>{
 
 })
 
-app.get("/previousp",(req,res)=>{
+app.get("/previousp",authorization.authorization,(req,res)=>{
 
     
     current -=200;
@@ -311,7 +311,7 @@ app.get("/previousp",(req,res)=>{
     });
 })
 
-app.get("/nextp",(req,res)=>{
+app.get("/nextp",authorization.authorization,(req,res)=>{
     
     current +=200;
     const q=`select * from student_details_26feb order by ${field_name} limit 200 OFFSET ?`;
@@ -324,7 +324,7 @@ app.get("/nextp",(req,res)=>{
 })
 
 
-app.get("/lastp", (req,res)=>{
+app.get("/lastp", authorization.authorization,(req,res)=>{
     current=10000;
     const q=`select * from student_details_26feb order by ${field_name} limit 200 OFFSET 9800;`;
     connection.query(q,[current],(err,result)=>{
@@ -334,7 +334,7 @@ app.get("/lastp", (req,res)=>{
     });
 })
 
-app.get("/firstp", (req,res)=>{
+app.get("/firstp", authorization.authorization,(req,res)=>{
 
     const q=`select * from student_details_26feb order by ${field_name} limit 200 OFFSET ?`;
     current=0;
@@ -345,7 +345,7 @@ app.get("/firstp", (req,res)=>{
     });
 })
 
-app.get("/sortby", (req,res)=>{
+app.get("/sortby", authorization.authorization,(req,res)=>{
     field_name=req.query.field;
     const q=`select * from student_details_26feb order by ${field_name} limit 200 OFFSET ?`;
    
@@ -366,7 +366,7 @@ let year;
 
 var q;
 
-app.get('/percentage',(req,res)=>{
+app.get('/percentage',authorization.authorization,(req,res)=>{
 console.log('sdfkgs');
  console.log(req.query.months, req.query.Year);
   if((req.query.months, req.query.Year)){
@@ -397,7 +397,7 @@ count( if(attendance_26feb.attendance='B' or attendance_26feb.attendance='P',att
   });
 
 
-app.get('/firstp_stu_per',(req,res)=>{
+app.get('/firstp_stu_per',authorization.authorization,(req,res)=>{
   
 
   if((req.query.months || req.query.Year)){
@@ -418,7 +418,7 @@ app.get('/firstp_stu_per',(req,res)=>{
   });});
 
 
-app.get('/previousp_stu_per',(req,res)=>{
+app.get('/previousp_stu_per',authorization.authorization,(req,res)=>{
  
   if((req.query.months || req.query.Year)){
     year=req.query.Year;
@@ -436,7 +436,7 @@ app.get('/previousp_stu_per',(req,res)=>{
 });
 })
 
-app.get('/nextp_stu_per',(req,res)=>{
+app.get('/nextp_stu_per',authorization.authorization,(req,res)=>{
   
   if((req.query.months || req.query.Year)){
     year=req.query.Year;
@@ -454,7 +454,7 @@ app.get('/nextp_stu_per',(req,res)=>{
   });});
 
 
-app.get('/lastp_stu_per',(req,res)=>{
+app.get('/lastp_stu_per',authorization.authorization,(req,res)=>{
 
   if((req.query.months || req.query.Year)){
     year=req.query.Year;
@@ -478,7 +478,7 @@ app.get('/lastp_stu_per',(req,res)=>{
 
 var q;
 
-app.get('/result',(req,res)=>{
+app.get('/result',authorization.authorization,(req,res)=>{
 
      q=`select student_master_26feb.stu_id,student_master_26feb.fname,student_master_26feb.lname,sum(result_details_26feb.prac_marks) as pr, sum(result_details_26feb.theor_marks)as tr from student_master_26feb
     join result_details_26feb
@@ -497,7 +497,7 @@ app.get('/result',(req,res)=>{
      })
 });
 
-app.get('/firstp_result', (req,res)=>{
+app.get('/firstp_result',authorization.authorization, (req,res)=>{
     current=0;
     connection.query(q+"?",[current],(err,result)=>{
         if (err) throw err;
@@ -509,7 +509,7 @@ app.get('/firstp_result', (req,res)=>{
      })
 })
 
-app.get('/nextp_result',(req,res)=>{
+app.get('/nextp_result',authorization.authorization,(req,res)=>{
     current+=60;
     console.log(current)
 
@@ -524,7 +524,7 @@ app.get('/nextp_result',(req,res)=>{
     })
 })
 
-app.get('/lastp_result', (req,res)=>{
+app.get('/lastp_result',authorization.authorization, (req,res)=>{
     current=540;
 
     connection.query(q+"?",[current],(err,result)=>{
@@ -537,7 +537,7 @@ app.get('/lastp_result', (req,res)=>{
     })
 })
 
-app.get('/previousp_result',(req,res)=>{
+app.get('/previousp_result',authorization.authorization,(req,res)=>{
     current-=60;
     console.log(current)
 
@@ -552,7 +552,7 @@ app.get('/previousp_result',(req,res)=>{
         })
 })
 
-app.get('/new/:id',(req,res)=>{
+app.get('/new/:id',authorization.authorization,(req,res)=>{
     let key=req.params.id;
     console.log(key);
     const  q= `select student_master_26feb.stu_id,student_master_26feb.fname,student_master_26feb.lname,subject_details_26feb.sub_name as sub_name,
@@ -589,7 +589,7 @@ var quer2;
 var q2;
 
 
-app.get('/dynamicquery',(req,res)=>{
+app.get('/dynamicquery',authorization.authorization,(req,res)=>{
     res.render('dynamicquery1.ejs');
 });
 
@@ -615,7 +615,7 @@ app.post('/dynamicquery',(req,res)=>{
    });
 })
 
-app.get('/firstp_dynamicquery',(req,res)=>{
+app.get('/firstp_dynamicquery',authorization.authorization,(req,res)=>{
  
     // console.log(q);
     quer=`${q} limit ?, ?`
@@ -632,7 +632,7 @@ app.get('/firstp_dynamicquery',(req,res)=>{
     })
 
 
-app.get('/nextp_dynamicquery', (req,res)=>{
+app.get('/nextp_dynamicquery', authorization.authorization,(req,res)=>{
     current+=40;
     quer=`${q} limit ?, ?`
     connection.query(quer,[current,limit_dynamicquery],function(err,result,fields){
@@ -647,7 +647,7 @@ app.get('/nextp_dynamicquery', (req,res)=>{
 })
 
 
-app.get('/previousp_dynamicquery', (req,res)=>{
+app.get('/previousp_dynamicquery',authorization.authorization, (req,res)=>{
     current-=40;
     quer=`${q} limit ?, ?`
     connection.query(quer,[current,limit_dynamicquery],function(err,result,fields){
@@ -660,7 +660,7 @@ app.get('/previousp_dynamicquery', (req,res)=>{
     })
 })
 
-app.get('/lastp_dynamicquery', (req,res)=>{
+app.get('/lastp_dynamicquery',authorization.authorization, (req,res)=>{
     total_records;
     if(total_records<=  40){
     quer=`${q} limit ?`
@@ -705,7 +705,7 @@ var fname,lname,city,state,choice;
 var message;
 
 
-app.get('/home',(req,res)=>{
+app.get('/home',authorization.authorization,(req,res)=>{
   
   if(temp==0){
     current_p=Number(req.query.page_no)||1;
@@ -823,7 +823,7 @@ app.post('/home/showall', (req,res)=>{
 var q1;
 var p;
 
-app.get('/delimeter',(req,res)=>{
+app.get('/delimeter',authorization.authorization,(req,res)=>{
    q=`select * from student_master_26feb`;
    connection.query(q,(err,result)=>{
     if(err) throw err;
@@ -950,7 +950,7 @@ var result;
 var msg;
 
 
-app.get('/combobox',(req,res)=>{
+app.get('/combobox',authorization.authorization,(req,res)=>{
     res.render('combobox_6march.ejs',{user:result,type:type,name:name,result:result,msg:''});
 })
 
@@ -984,7 +984,7 @@ app.post('/combobox',(req,res)=>{
 
 // Form CRUD in node 7March........................
 
-app.get('/form', (req, res) => {
+app.get('/form', authorization.authorization,(req, res) => {
   res.render('form_crud1_node_7march.ejs');
 })
 
@@ -1210,7 +1210,7 @@ app.post('/form', (req, res) => {
 
 
 
-app.get('/form/:id',async(req,res)=>{
+app.get('/form/:id',authorization.authorization,async(req,res)=>{
 
   id=req.params.id;
   // console.log(id);
@@ -1537,7 +1537,7 @@ app.get('/cities/:state', (req, res) => {
 
 
 
-app.get("/formajax",(req,res)=>{
+app.get("/formajax",authorization.authorization,(req,res)=>{
     res.render("crud_from_ajax.ejs")
 });
 
@@ -1651,7 +1651,7 @@ department=formData.department;
 var q = `insert into emp_basic_details(first_name,last_name,designation,address_1,phone,city,state,email,gender,zip_code,status,dob)
   values('${first_name}','${last_name}','${designation_basic}','${address_1}','${phone}','${city}','${state}','${email}','${gender}','${zip_code}','${status1}','${dob}');`;
 
-conn.query(q, (err, result) => {
+connection.query(q, (err, result) => {
   // console.log(q);
   if (err) throw err;
 
@@ -1661,7 +1661,7 @@ conn.query(q, (err, result) => {
   let q2= `insert into education_details(emp_id,board_name_course_name,passing_year,percentage)
   values('${result.insertId}', '${board_name[i]}','${passing_year[i]}','${percentage[i]}');`;
   if(board_name[i]){
-    conn.query(q2,(err,result)=>{
+    connection.query(q2,(err,result)=>{
       // console.log(result);
     })
   }
@@ -1674,7 +1674,7 @@ var work1=typeof(company_name);
 if(work1=='string'){
   let q3=`insert into work_experience(emp_id,company_name,designation,exp_from,exp_to)
   values('${result.insertId}','${company_name}','${designation}','${from}','${to}')`
-    conn.query(q3,(err,result)=>{
+    connection.query(q3,(err,result)=>{
         console.log(q3);
       })
 }
@@ -1685,7 +1685,7 @@ for(let i=0;i<company_name.length;i++){
   values('${result.insertId}','${company_name[i]}','${designation[i]}','${from[i]}','${to[i]}')`
 
 if(company_name[i]){
-  conn.query(q3,(err,result)=>{
+  connection.query(q3,(err,result)=>{
       console.log(q3);
     })
   }
@@ -1701,7 +1701,7 @@ console.log('ref1',ref1);
 if(ref1=='string'){
  let q4=`insert into refrences(emp_id,ref_name,contact_no,relation)
   values('${result.insertId}','${ref_name}','${ref_contact}','${relation}')`
-    conn.query(q4,(err,result)=>{
+    connection.query(q4,(err,result)=>{
         console.log(q4);
       })
 }
@@ -1716,7 +1716,7 @@ for(let i=0;i<ref_name.length;i++){
   // console.log(q4);
 
 if(ref_name[i]){
-  conn.query(q4,(err,result)=>{
+  connection.query(q4,(err,result)=>{
       // console.log(q4);
     })
   }
@@ -1729,7 +1729,7 @@ if(ref_name[i]){
 var q5 = `insert into prefrences(emp_id,prefred_location,notice_period,expected_ctc,current_ctc,department)
 values('${result.insertId}','${prefred_location}','${notice_period}','${expected_ctc}','${current_ctc}','${department}');`;
 
-conn.query(q5,(err,result)=>{
+connection.query(q5,(err,result)=>{
   // console.log(q5);
 })
 
@@ -1741,7 +1741,7 @@ for(let i=0;i<lang_arr.length;i++){
   values('${result.insertId}','${lang_arr[i]}','${lang_oparr[i]}')`
 
 if(lang_arr[i]){
-  conn.query(q6,(err,result)=>{
+  connection.query(q6,(err,result)=>{
       console.log(q6);
     })
   }
@@ -1757,7 +1757,7 @@ if(lang_arr[i]){
   values('${result.insertId}','${tech[i]}','${tech_oparr[i]}')`
 
 if(tech[i]){
-  conn.query(q7,(err,result)=>{
+  connection.query(q7,(err,result)=>{
       // console.log(q7);
     })
   }
@@ -1776,7 +1776,7 @@ if(tech[i]){
 // app.get('/work_experience',work_experience);
 
 
-app.get('/formajax/showdata', async (req, res) => {
+app.get('/formajax/showdata',authorization.authorization, async (req, res) => {
   try {
     const  id=req.query.id ;
     console.log(id)
@@ -1788,7 +1788,7 @@ app.get('/formajax/showdata', async (req, res) => {
     // Function to execute SQL queries
     const query = (str) => {
       return new Promise((resolve, reject) => {
-        conn.query(str, (err, result) => {
+        connection.query(str, (err, result) => {
           if (err) {
             reject(err);
           } else {
@@ -1828,7 +1828,7 @@ app.get('/formajax/showdata', async (req, res) => {
   }
 });
 
-app.get("/formajax/update",(req,res)=>{
+app.get("/formajax/update",authorization.authorization,(req,res)=>{
     res.render("one.ejs");
 })
 
@@ -1845,7 +1845,7 @@ app.post('/formajax/update/:id',async(req,res)=>{
   if(req.params.id){
     let query=(str)=>{
       return new Promise((resolve,reject)=>{
-        conn.query(str,function(err,result){
+        connection.query(str,function(err,result){
           if(err) throw err;
           else{
             resolve(result);
@@ -1920,7 +1920,10 @@ app.post('/formajax/update/:id',async(req,res)=>{
  })
 
 
-
+   // For Logout and cookie removal process.....
+  app.get('/logout',authorization.authorization,(req,res)=>{
+    res.clearCookie('access_token').status(200).redirect('/login');
+  })
 
 // End..................................................
 app.listen(port,()=>{
