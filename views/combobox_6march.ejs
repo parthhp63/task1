@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+                    body{
+                background-color: rgb(15, 15, 15);
+               color:whitesmoke ; 
+               justify-content: center;
+               text-align: center;
+            }
+    </style>
+</head>
+<body>
+  
+     <div class="info">
+        <h2 class="details"> Parth Patil 24DEV014 </h2>
+        <p>Enter in the form of {field, type of box}</p>
+     </div>
+
+    <div class="search-box">
+        <form action="/combobox" method="post" id="form">
+        <label for="id">Query:- &nbsp;</label>
+        <input type="text" name="id" id="text"></div>
+        <div class="text">
+        <input type="submit" value="submit">
+    </form>
+    </div>
+
+    <%= msg%>
+    <div class="elements">
+        <% if(type=='checkbox' || type=='radio') {%>
+
+            <h1><%=name%></h1>
+            <% for(let i=0; i<result.length;i++){%>
+                <input type="<%=type%>"  name="<%=name%>" value="<%result[i].name%>">
+                <%=result[i].name%><br>
+            <%} %>
+             <% } %>
+
+        <% if(type=='select'){%>
+            <h1><%=name%></h1>
+            <select name="<%name%>" >
+            <% for(let i=0; i<result.length;i++){%>
+                 <option value="<%=result[i].name%>"><%=result[i].name%><br></option>
+
+                <% }%>
+            </select>
+        <%}%>
+    </div>
+</body>
+</html>

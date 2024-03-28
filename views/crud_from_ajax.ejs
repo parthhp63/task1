@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">        
+    <style>
+      fieldset{
+          border: 4px solid rgb(0, 153, 255);
+          border-radius: 12px;
+          padding: 10px;
+          margin: 4px;
+      }
+      p{
+          color: red;
+      }
+      .active{
+        display: block;
+ 
+      }
+/* 
+      .form-section.active {
+            
+        } */
+        .nav-menu{
+            display: flex;
+         gap: 69px;
+         text-align: center;
+         justify-content: center;
+         text-decoration: none;
+         padding-top: 20px;
+         list-style-type: none;
+         padding-right: 184px;
+        }
+        .nav-menu  li a ::marker{
+            list-style-type:none;
+        }   
+        .nav-menu a{
+            text-decoration: none;
+            list-style-type:none;   
+        }
+        #head{
+            padding-right: 114px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="#" onclick="previousSection()">Previous</a></li>
+ 
+            <li><a href="#" onclick="nextSection()">Next</a></li>
+        </ul>
+    </nav>
+
+    <div>
+    <center>
+        <h2 id="head">Job Application Form</h2> 
+    </center>
+</div>
+
+    <div id="formContainer">
+        <form id ="form" >
+               
+                <div class="container">
+                  <div class="row" >
+                            <!-- Basic Details-->
+                    <div class="col">
+                       <fieldset id="basicDetails" class="form-section active"> <legend>Basic Details</legend>
+                        <div class="container" >
+                            <div class="row">
+                                <div class="col-md-6-">
+
+                                    <label for="first_name" >First Name</label>
+                                    <input name="first_name" id="first_name" type="text" class="form-control"/>
+                                    <p class="validate_of not_number" id="not_number"></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6-">
+                                    <label name="last_name" >Last Name</label>
+                                    <input name="last_name" id="last_name" type="text"  class="form-control"/>
+                                    <p class="validate_of not_number" id="not_number"></p>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6" >
+                                    <label for="designation" >Designation</label>
+                                    <input name="designation_basic" id="designation_basic" type="text"  class="form-control"/>
+                                    <p class="validate_of"></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Address_1" >Address 1</label>
+                                    <input name="address_1" id="address_1"  type="text" class="form-control"></textarea>
+                                    <p class="  validate_of"> </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="phone" >Phone</label>
+                                    <input name="phone" id="phone" type="text" class="form-control" />
+                                    <p class="validate_of" id="phone_validation"> </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="city" >city</label>
+                                    <input name="city" id="city"  type="text" class="form-control" />
+                                    <p class="  validate_of"> </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="state" >State</label>
+                                    <select name="state" id="state" class="form-control">
+                                       <option value="Guajarat">Gujarat</option>
+                                       <option value="Maharashtra">Maharashtra</option>
+                                       <option value="UP">UP</option>
+                                       <option value="punjab">Punjab</option>
+                                     </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" >E-Mail</label>
+                                    <input name="email" id="email"  type="text" class="form-control" />
+                                    <p class=" " id="email_validation"> </p>
+                                </div> 
+                            </div>
+    
+                            <div class="row">
+                                <div class="col-md-6" class="form-control">
+                                    <label>Gender:</label>
+                                    <div class="control">
+                                    <input type="radio"  name="gender" value="male" id="male">Male
+                                    <input type="radio"  name="gender" value="female" id="female">Female
+                                    </div>
+                                    <p id="gender_validation"></p>
+    
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="zip_code" >Zip Code</label>
+                                    <input id="zip_code" name="zip_code" type="text" class="form-control"  />
+                                    <p class="  " id="zip_validation"> </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="relationship_status" >RelationShip Status</label>
+                                    <select name="status" id="status" class="form-control" >
+                                       <option value="single" id="single">Single</option>
+                                       <option value="married" id="married">Married</option>
+                                     </select>
+    
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="dob">Date of Birth</label>
+                                    <input type="text" id="dob" name="dob" class="form-control"/> 
+                                    <p class="  " id="validate_dob"> </p>
+                                </div>
+                            </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    </div>
+
+
+                    <!-- Education Details-->
+                    <div class="row">
+                <div class="col">
+                    <fieldset id="educationDetails" class="form-section">
+                        <legend>Education Details</legend>
+                    <div class="container">
+        
+                          <!-- SSC result-->
+                        <div class="row">
+                            <div class="col">
+                                SSC Result
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="board_name" >Name of Board</label>
+                                <input name="board_name" type="text" id="board_name_ssc" class="form-control"/>
+                                <p class="ssc"></p>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="passing_year" >Passing Year</label>
+                                <input name="passing_year" type="text" id="passing_year_ssc" class="form-control"/>
+                                <p class="ssc eduno_validation" ></p>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="percentage" >Percentage</label>
+                                <input name="percentage" type="text" id="percentage_ssc" class="form-control"/>
+                                <p class="ssc eduno_validation"></p>
+                            </div>
+                            <p class="education_validation"></p>
+                        </div> 
+                        <hr>
+        
+                          <!-- HSC result-->
+                        <div class="row">
+                         <div class="col-md-4">
+                              HSC Result
+                          </div>
+                        </div>  
+        
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="board_name_hsc" >Name of Board</label>
+                            <input name="board_name" type="text" id="board_name_hsc" class="form-control"/>
+                            <p class="hsc"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="passing_year_hsc" >Passing Year</label>
+                            <input name="passing_year" type="text" id="passing_year_hsc" class="form-control"/>
+                            <p class="hsc eduno_validation"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="percentage_hsc" >Percentage</label>
+                            <input name="percentage" type="text" id="percentage_hsc" class="form-control"/>
+                            <p class="hsc eduno_validation"></p>
+                        </div>
+                        <p class="education_validation"></p>
+                    </div>
+                    <hr>
+        
+        
+                       <!-- bachelor result-->
+                    <div class="row">
+                        <div class="col-md-4">
+                           Bachelor Degree
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="course_name" >Course Name</label>
+                            <input name="board_name" type="text" id="board_name_bc"class="form-control"/>
+                            <p class="bc"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="passing_year_bc" >Passing Year</label>
+                            <input name="passing_year" type="text" class="form-control" id="passing_year_bc"/>
+                            <p class="bc eduno_validation" ></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="percentage_bc" >Percentage</label>
+                            <input name="percentage" type="text" class="form-control" id="percentage_bc"/>
+                            <p class="bc eduno_validation" ></p>
+                        </div>
+                        <p class="education_validation"></p>
+                    </div>
+                    <hr>
+        
+                     <!--Master Result-->
+                     <div class="row">
+                        <div class="col">
+                           Master Degree
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="course_name" >Course Name</label>
+                            <input name="board_name" type="text" class="form-control" id="board_name_ms"/>
+                            <p class="ms"></p>
+        
+                        </div>
+                        <div class="col-md-4">
+                            <label for="passing_year_ms" >Passing Year</label>
+                            <input name="passing_year" type="text" class="form-control" id="passing_year_ms"/>
+                            <p class="ms eduno_validation" ></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="percentage_ms" >Percentage</label>
+                            <input name="percentage" type="text" class="form-control" id="percentage_ms"/>
+                            <p class="ms eduno_validation"></p>
+                        </div>
+                        <p class="education_validation"></p>
+                    </div>
+                </div>
+                </fieldset>
+                    </div>
+                </div>
+
+                <!--Work Experience-->
+        <div class="row"  >
+            <div class="col">
+                <fieldset  id="workexperience" class="form-section">
+                    <legend> Work Experience</legend>
+                    <table id="company_dynamic">
+                <div class="container" >
+                    <div class="row"    >
+                        <div class="col-md-3">
+                            <label for="company_name" >Company Name</label>
+                            <input name="company_name" type="text" class="form-control" id="company_name1" />
+                            <p class="experience_validation"></p>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="designation" >Designation</label>
+                            <input name="designation" type="text" class="form-control" id="designation1"/>
+                            <p class="experience_validation"></p>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="from">From</label>
+                            <input type="text" name="from" class="form-control" id="from1"/>
+                            <p class="experience_validation"></p>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="to">To </label>
+                            <input type="text" id="to1" name="to" class="form-control"/> 
+                            <p class="experience_validation"></p>
+                        </div>
+                    </div>
+                    <div class="row"    >
+                        <div class="col-md-3">
+                            <label for="company_name" >Company Name</label>
+                            <input name="company_name" type="text" class="form-control" id="company_name1" />
+                            <p class="experience_validation"></p>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="designation" >Designation</label>
+                            <input name="designation" type="text" class="form-control" id="designation1"/>
+                            <p class="experience_validation"></p>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="from">From</label>
+                            <input type="text" name="from" class="form-control" id="from1"/>
+                            <p class="experience_validation"></p>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="to">To </label>
+                            <input type="text" id="to1" name="to" class="form-control"/> 
+                            <p class="experience_validation"></p>
+                        </div>
+                    </div>
+                    <div class="row"    >
+                        <div class="col-md-3">
+                            <label for="company_name" >Company Name</label>
+                            <input name="company_name" type="text" class="form-control" id="company_name1" />
+                            <p class="experience_validation"></p>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="designation" >Designation</label>
+                            <input name="designation" type="text" class="form-control" id="designation1"/>
+                            <p class="experience_validation"></p>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="from">From</label>
+                            <input type="text" name="from" class="form-control" id="from1"/>
+                            <p class="experience_validation"></p>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="to">To </label>
+                            <input type="text" id="to1" name="to" class="form-control"/> 
+                            <p class="experience_validation"></p>
+                        </div>
+                    </div>
+                </div>
+            </table>
+                </fieldset>
+            </div>
+            </div>
+
+             <!--Language known -->
+        <div class="row">
+            <div class="col">
+                <fieldset id="language" class="form-section">
+                    <legend>Language Known</legend>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="checkbox" name="lang1" value="hindi" id="hindi">
+                                <label for="lang1"> Hindi</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="hindi" value="hindiread" id="hindiread">
+                                <label for="read"> read</label>&nbsp;
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="hindi" value="write" id="hindiwrite">
+                                <label for="write"> write</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="hindi" value="speak" id="hindispeak">
+                                <label for="speak"> speak</label>
+                            </div>
+                             <p id="language_check1"></p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="checkbox" name="lang2" value="english"  id="english">
+                                <label for="lang2"> English</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="eng" value="read" id="englishread">
+                                <label for="read"> read</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="eng" value="write" id="englishwrite">
+                                <label for="write"> write</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="eng" value="speak" id="englishspeak">
+                                <label for="speak"> speak</label> 
+                            </div>
+                            <p id="language_check2"></p>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="checkbox" name="lang3" value="gujarti" id="gujarti">
+                                <label for="lang3"> Gujarati</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="guj" value="read" id="gujartiread">
+                                <label for="read"> read</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="guj" value="write" id="gujartiwrite">
+                                <label for="write"> write</label>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="checkbox" name="guj" value="speak" id="gujartispeak">
+                                <label for="speak"> speak</label> 
+                            </div>
+                            <p id="language_check3"></p>
+                        </div>
+                </fieldset>
+            </div>
+            </div>
+  
+
+            <!-- Technologies -->
+        </div class="row">
+            <div class="col">
+                <fieldset id="technologies" class="form-section">
+                    <legend>Technologies</legend>
+                    <div class="container"></div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="checkbox" name="technology" value="php" id="php">
+                            <label for="technology1"> PHP</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio" id="phpbeginer" name="tech1" value="beginer">
+                              <label for="beginer">beginer</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio" id="phpmediator" name="tech1" value="mediator">
+                              <label for="mediator">Mediator</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio" id="phpexpert" name="tech1" value="expert">
+                              <label for="expert">Expert</label>    
+                        </div>
+                        <p id="tech1"></p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="checkbox" name="technology" value="MYSQL" id="MYSQL">
+                            <label for="technology1"> MYSQL</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio"  name="tech2" value="beginer" id="MYSQLbeginer">
+                              <label for="beginer">beginer</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio"  name="tech2" value="mediator" id="MYSQLmediator">
+                              <label for="mediator">Mediator</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio" name="tech2" value="expert" id="MYSQLexpert">
+                              <label for="expert">Expert</label>
+                        </div>
+                        <p id="tech2"></p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="checkbox" name="technology" value="laravel" id="laravel">
+                            <label for="technology1"> Laravel</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio"  name="tech3" value="beginer" id="laravelbeginer">
+                              <label for="beginer">beginer</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio"  name="tech3" value="mediator" id="laravelmediator">
+                              <label for="mediator">Mediator</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio" name="tech3" value="expert" id="laravelexpert">
+                              <label for="expert">Expert</label>
+                        </div>
+                        <p id="tech3"></p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="checkbox" name="technology" value="Oracle" id="Oracle">
+                            <label for="technology1"> Oracle</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio"  name="tech4" value="beginer" id="Oraclebeginer">
+                              <label for="beginer">beginer</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio"  name="tech4" value="mediator" id="Oraclemediator">
+                              <label for="mediator">Mediator</label>
+                        </div>
+                        <div class="col-md-3">
+                              <input type="radio" name="tech4" value="expert" id="Oracleexpert">
+                              <label for="expert">Expert</label>
+                        </div>
+                        <p id="tech4"></p>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+
+         <!--Refrence contact-->
+      <div class="row">
+        <div class="col">
+            <fieldset id="refrence" class="form-section">
+                <legend>Refrence Contact</legend>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="name" >Name</label>
+                            <input name="ref_name" type="text" 
+                            id="name1" class="form-control"/>
+                            <p class="ref_val1"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="contact number" >Contact Number</label>
+                            <input name="contact_number" type="text" class="form-control" id="contact_no1"/>
+                            <p class="ref_val1"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="relation">Relation</label>
+                            <input type="text" name="relation" class="form-control" id="relation1"/>
+                            <p class="ref_val1"></p> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="name" >Name</label>
+                            <input name="ref_name" type="text" 
+                            id="name1" class="form-control"/>
+                            <p class="ref_val1"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="contact number" >Contact Number</label>
+                            <input name="contact_number" type="text" class="form-control" id="contact_no1"/>
+                            <p class="ref_val1"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="relation">Relation</label>
+                            <input type="text" name="relation" class="form-control" id="relation1"/>
+                            <p class="ref_val1"></p> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="name" >Name</label>
+                            <input name="ref_name" type="text" 
+                            id="name1" class="form-control"/>
+                            <p class="ref_val1"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="contact number" >Contact Number</label>
+                            <input name="contact_number" type="text" class="form-control" id="contact_no1"/>
+                            <p class="ref_val1"></p>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="relation">Relation</label>
+                            <input type="text" name="relation" class="form-control" id="relation1"/>
+                            <p class="ref_val1"></p> 
+                        </div>
+                    </div>
+
+               
+                </div>
+
+            </fieldset>
+        </div>
+      </div>
+
+       <!-- Preferences-->
+     <div class="row" >
+        <div class="col">
+            <fieldset id="prefrences" class="form-section">
+                <legend>Prefrences</legend>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="prefred location" >Prefred Location</label>
+                            <select name="prefred_location" id="prefred_location" class="form-control">
+                            <option value="surat" id="surat">Surat</option>
+                            <option value="pune" id="pune">Pune</option>
+                            <option value="ahmedabad" id="ahmedabad">Ahmedabad</option>
+                            <option value="banglore" id="banglore">Banglore</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="notice_period ">Notice Period </label>
+                            <input type="text" name="notice_period" class="form-control" id="notice_period"/><p class="validate_of"></p>
+                             <br>
+
+                            <label for="expected ctc">Expected CTC</label>
+                            <input type="text" name="expected_ctc" class="form-control" id="expected_ctc"/><p class="validate_of"></p>
+                            
+                            <br>
+                            <label for="current ctc">Current CTC</label>
+                            <input type="text" name="current_ctc" class="form-control" id="current_ctc"/> <p class="validate_of"></p>
+                            
+                            <br>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="department" >Department</label> 
+                            <select name="department" id="department" class="form-control">
+                            <option value="development" id="development">development</option>
+                            <option value="design" id="design">Design</option>
+                            <option value="marketing" id="marketing">Marketing</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <center>  <input id="submitt" type="button" onclick="submitForm()" class="btn btn-secondary btn-lg" value="submitt"> 
+                    <input id="update" type="button" onclick="submitForm()" class="btn btn-secondary btn-lg" value="Update"></center>
+   
+            </fieldset>
+        </div>
+     </div>
+      </div>
+
+    </div>  
+
+        
+      </div>
+       </form>
+    </div>
+
+
+    <script>
+
+
+
+        let currentSectionIndex = 0;
+        const sections = document.querySelectorAll('.form-section');
+        showSection('basicDetails'); // Display the first section by default
+
+        function showSection(sectionId) {
+            
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+            // document.getElementById(sectionId).classList.add("active");
+            currentSectionIndex = Array.from(sections).findIndex(section => section.id === sectionId);
+
+        }
+    
+    
+
+
+        function nextSection() {
+            // if (!validateCurrentSection()) {
+            //     console.log('validation not executed')
+            //     return; 
+            // }
+            if (currentSectionIndex <sections.length - 1) {
+                // console.log(currentSectionIndex);
+
+
+                 console.log('going to next section')
+                currentSectionIndex++;
+                showSection(sections[currentSectionIndex].id);
+                // document.getElementById(sections[currentSectionIndex-1].id).classList.remove('active');
+            }
+        }
+    
+        // Function to handle previous button click
+        function previousSection() {
+            // Proceed to the previous section
+            if (currentSectionIndex > 0) {
+                currentSectionIndex--;
+                console.log(currentSectionIndex)
+                showSection(sections[currentSectionIndex].id);
+                document.getElementById(sections[currentSectionIndex+1].id).classList.remove('active')
+            }
+        }
+
+                function validateBasicDetails(){
+                    var flag=0;
+                      // for blank fields-------------------
+                      var validate=['first_name','last_name','designation_basic','address_1','phone','city'];
+                        var display=['First Name', 'Last Name','Designation','Address','Phone','City'];
+                        // console.log(validate.length);
+                    
+                    for(var i=0;i<validate.length;i++){
+                        // console.log(validate);
+                         str=document.getElementById(validate[i]);
+                        //  console.log(str);
+                         if(str.value.trim()=='' || str.value.trim()==null){
+                            document.getElementsByClassName('validate_of')[i].innerHTML= display[i]+" cannot be blank";
+                           flag=1
+                        }                           
+                        else{ 
+                            document.getElementsByClassName('validate_of')[i].innerHTML="";
+                            
+                        }
+                    }
+                //   // Phone Validation-------------------
+                               var p=document.getElementById('phone').value;
+                               var phoneno = /^\d{10}$/;
+                            //    console.log('sdsdvsd',p);
+                               if((!p.match(phoneno))) {
+                                    document.getElementById('phone_validation').innerHTML= 'Please enter the Phone no in 10 digit';
+                                    flag=1;
+                                 }
+                                 else if((p.match(phoneno))) {
+                                    document.getElementById('phone_validation').innerHTML= '';
+                                 }
+
+                //  // email validation----------------------------
+                 var em=document.getElementById('email').value;
+                     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                    if (!em.match(validRegex)) {
+                         document.getElementById('email_validation').innerHTML= 'Please enter the email in proper format';
+                         flag=1;
+                    }
+                     else if(em.match(validRegex)){
+                        document.getElementById('email_validation').innerHTML= '';
+                    }
+
+                //  // Zip Validation------------------
+                 var zip=document.getElementById('zip_code').value;
+                        // console.log(zip)
+                        regexp = /^\d{6}$/;
+                        if (!zip.match(regexp)) {
+                        document.getElementById('zip_validation').innerHTML= 'Please enter the Zip Code in 6 digit';
+                            flag=1;
+                    }
+                    else if(zip.match(regexp)) {
+                        document.getElementById('zip_validation').innerHTML= '';
+                    }
+                 
+                //  // DOB Validation----------------------
+                 var dob_validate=document.getElementById('dob').value;
+                    var dateformat = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+                    if (!dob_validate.match(dateformat)) {
+                    document.getElementById('validate_dob').innerHTML= 'Please enter the Date of birth in dd/mm/yyyy or dd-mm-yyyy format';
+                        flag=1;
+                 }
+                 else if(dob_validate.match(dateformat)) {
+                    document.getElementById('validate_dob').innerHTML= '';
+                 }
+
+                 if(flag==1){
+                        return false;
+                    }
+                  else{
+                      console.log('return true');
+                    return true
+                  }
+                    }
+
+
+        function validateEducationDetails(){
+        console.log('validating education details')
+            var flag=0;
+            let ssc=['board_name_ssc','passing_year_ssc','percentage_ssc'];
+       let hsc=['board_name_hsc','passing_year_hsc','percentage_hsc'];
+       let bc=['board_name_bc','passing_year_bc','percentage_bc'];
+       let ms=['board_name_ms','passing_year_ms','percentage_ms'];
+
+
+       for(let i=0; i<ssc.length;i++){
+        if(document.getElementById(ssc[i]).value!==''){
+            for(let j=0;j<ssc.length;j++){
+                if(document.getElementById(ssc[j]).value=='' ||document.getElementById(ssc[j]).value== null ){
+                   
+                    document.getElementsByClassName('ssc')[j].innerHTML='Required Field';
+                    flag=1;
+                }
+
+               else{
+                document.getElementsByClassName('ssc')[j].innerHTML='';
+               }
+            }
+        }
+       }
+
+
+
+       for(let i=0; i<hsc.length;i++){
+        if(document.getElementById(hsc[i]).value!==''){
+            for(let j=0;j<hsc.length;j++){
+                if(document.getElementById(hsc[j]).value=='' ||document.getElementById(hsc[j]).value== null ){
+                    document.getElementsByClassName('hsc')[j].innerHTML='Required Field';
+                    flag=1;
+                }
+                else{
+                    document.getElementsByClassName('hsc')[j].innerHTML='';
+               }
+            }
+        }
+       }
+
+    
+
+
+       for(let i=0; i<bc.length;i++){
+        if(document.getElementById(bc[i]).value!==''){
+            for(let j=0;j<bc.length;j++){
+                if(document.getElementById(bc[j]).value=='' ||document.getElementById(bc[j]).value== null ){
+                    document.getElementsByClassName('bc')[j].innerHTML='Required Field';
+                    flag=1;
+                }
+                else{
+                    document.getElementsByClassName('bc')[j].innerHTML='';
+               }
+            }
+        }
+       }
+    
+
+
+       for(let i=0; i<ms.length;i++){
+        if(document.getElementById(ms[i]).value!==''){
+            for(let j=0;j<ms.length;j++){
+                if(document.getElementById(ms[j]).value=='' ||document.getElementById(ms[j]).value== null ){
+                    document.getElementsByClassName('ms')[j].innerHTML='Required Field';
+                    flag=1;
+                }
+                else{
+                    document.getElementsByClassName('ms')[j].innerHTML='';
+               }
+            }
+        }
+       }
+
+              if(flag==1){
+                        return false;
+                    }
+                  else{
+                    return true
+                  }
+        }
+
+        function datavalidation(){
+                   
+
+                  // for blank fields-------------------
+                    var validate=['first_name','last_name','designation_basic','address_1','phone','city','notice_period','expected_ctc','current_ctc'];
+                        var display=['First Name', 'Last Name','Designation','Address','Phone','City','Notice Period', 'Expected CTC','Current CTC'];
+                        // console.log(validate.length);
+                    
+                    for(var i=0;i<validate.length;i++){
+                        // console.log(validate);
+                         str=document.getElementById(validate[i]);
+                        //  console.log(str);
+                         if(str.value.trim()=='' || str.value.trim()==null){
+                            document.getElementsByClassName('validate_of')[i].innerHTML= display[i]+" cannot be blank";
+                           flag=1
+                        }                           
+                        else{ 
+                            document.getElementsByClassName('validate_of')[i].innerHTML="";
+                            
+                        }
+                    }
+
+
+                  // Phone Validation-------------------
+                               var p=document.getElementById('phone').value;
+                               var phoneno = /^\d{10}$/;
+                               console.log('sdsdvsd',p);
+                               if((!p.match(phoneno))) {
+                                    document.getElementById('phone_validation').innerHTML= 'Please enter the Phone no in 10 digit';
+                                    flag=1;
+                                 }
+                                 else if((p.match(phoneno))) {
+                                    document.getElementById('phone_validation').innerHTML= '';
+                                 }
+
+
+
+
+
+
+                 // email validation----------------------------
+                 var em=document.getElementById('email').value;
+                     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                    if (!em.match(validRegex)) {
+                         document.getElementById('email_validation').innerHTML= 'Please enter the email in proper format';
+                         flag=1;
+                    }
+                     else{
+                        document.getElementById('email_validation').innerHTML= '';
+                    }
+
+                 // Zip Validation------------------
+                 var zip=document.getElementById('zip_code').value;
+                        // console.log(zip)
+                        regexp = /^\d{6}$/;
+                        if (!zip.match(regexp)) {
+                        document.getElementById('zip_validation').innerHTML= 'Please enter the Zip Code in 6 digit';
+                            flag=1;
+                    }
+                    else if(zip.match(regexp)) {
+                        document.getElementById('zip_validation').innerHTML= '';
+                    }
+                 
+                 // DOB Validation----------------------
+                 var dob_validate=document.getElementById('dob').value;
+                    var dateformat = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+                    if (!dob_validate.match(dateformat)) {
+                    document.getElementById('validate_dob').innerHTML= 'Please enter the Date of birth in dd/mm/yyyy or dd-mm-yyyy format';
+                        flag=1;
+                 }
+                 else if(dob_validate.match(dateformat)) {
+                    document.getElementById('validate_dob').innerHTML= '';
+                 }
+
+
+    // Education Details validation-------------------
+                 let ssc=['board_name_ssc','passing_year_ssc','percentage_ssc'];
+       let hsc=['board_name_hsc','passing_year_hsc','percentage_hsc'];
+       let bc=['board_name_bc','passing_year_bc','percentage_bc'];
+       let ms=['board_name_ms','passing_year_ms','percentage_ms'];
+
+
+       for(let i=0; i<ssc.length;i++){
+        if(document.getElementById(ssc[i]).value!==''){
+            for(let j=0;j<ssc.length;j++){
+                if(document.getElementById(ssc[j]).value=='' ||document.getElementById(ssc[j]).value== null ){
+                   
+                    document.getElementsByClassName('ssc')[j].innerHTML='Required Field';
+                    flag=1;
+                }
+                
+               else{
+                document.getElementsByClassName('ssc')[j].innerHTML='';
+               }
+            }
+        }
+       }
+
+
+
+       for(let i=0; i<hsc.length;i++){
+        if(document.getElementById(hsc[i]).value!==''){
+            for(let j=0;j<hsc.length;j++){
+                if(document.getElementById(hsc[j]).value=='' ||document.getElementById(hsc[j]).value== null ){
+                    document.getElementsByClassName('hsc')[j].innerHTML='Required Field';
+                    flag=1;
+                }
+                else{
+                    document.getElementsByClassName('hsc')[j].innerHTML='';
+               }
+            }
+        }
+       }
+    
+
+
+       for(let i=0; i<bc.length;i++){
+        if(document.getElementById(bc[i]).value!==''){
+            for(let j=0;j<bc.length;j++){
+                if(document.getElementById(bc[j]).value=='' ||document.getElementById(bc[j]).value== null ){
+                    document.getElementsByClassName('bc')[j].innerHTML='Required Field';
+                    flag=1;
+                }
+                else{
+                    document.getElementsByClassName('bc')[j].innerHTML='';
+               }
+            }
+        }
+       }
+    
+
+
+       for(let i=0; i<ms.length;i++){
+        if(document.getElementById(ms[i]).value!==''){
+            for(let j=0;j<ms.length;j++){
+                if(document.getElementById(ms[j]).value=='' ||document.getElementById(ms[j]).value== null ){
+                    document.getElementsByClassName('ms')[j].innerHTML='Required Field';
+                    flag=1;
+                }
+                else{
+                    document.getElementsByClassName('ms')[j].innerHTML='';
+               }
+            }
+        }
+       }
+
+
+
+
+    // Language Known-----------------------------------------
+
+        let opt1=document.getElementById('hindil');
+         if(opt1.checked){
+            let read1=document.getElementById('read1');
+            let write1=document.getElementById('write1');
+            let speak1=document.getElementById('speak1');
+
+            if(!read1.checked && !write1.checked && !speak1.checked){
+                document.getElementById('language_check1').innerHTML=`Please select the option for Hindi`;
+                flag=1;
+            }
+            else{
+                document.getElementById('language_check1').innerHTML=``;
+
+            }     
+         }
+
+         else if(read1.checked || write1.checked || speak1.checked){
+            if(!opt1.checked){
+                document.getElementById('language_check1').innerHTML=`Please select the  option for read,write,speak`;
+                flag=1;
+            }
+            else{
+                document.getElementById('language_check1').innerHTML=``;
+            }     
+         }
+    
+
+
+            let opt2=document.getElementById('engl');
+            if(opt2.checked){
+            let read2=document.getElementById('read2');
+            let write2=document.getElementById('write2');
+            let speak2=document.getElementById('speak2');
+
+            if(!read2.checked && !write2.checked && !speak2.checked){
+                document.getElementById('language_check2').innerHTML=`Please select the option for English`;
+                flag=1;
+            }              else{
+                document.getElementById('language_check2').innerHTML=``;
+            }  
+         }
+
+         else if(read2.checked || write2.checked || speak2.checked){
+            if(!opt2.checked){
+                document.getElementById('language_check2').innerHTML=`Please select the  option for read,write,speak`;
+                flag=1;
+            }
+            else{
+                document.getElementById('language_check2').innerHTML=``;
+            }  
+         }
+        
+
+            let opt3=document.getElementById('gujl');
+             if(opt3.checked){
+            let read3=document.getElementById('read3');
+            let write3=document.getElementById('write3');
+            let speak3=document.getElementById('speak3');
+
+            if(!read3.checked && !write3.checked && !speak3.checked){
+                document.getElementById('language_check3').innerHTML=`Please select the option for Gujarati`;
+                flag=1;
+            }
+            else{
+                document.getElementById('language_check3').innerHTML=``;
+            }  
+         }
+         else if(read3.checked || write3.checked || speak3.checked){
+            if(!opt3.checked){
+                document.getElementById('language_check3').innerHTML=`Please select the  option for read,write,speak`;
+                flag=1;
+            }
+            else{
+                document.getElementById('language_check3').innerHTML=``;
+            }  
+        }
+
+    
+    // Technologies.
+
+
+        let lan1=document.getElementById('php');
+        if(lan1.checked){
+            let beg1=document.getElementById('beginer1');
+            let med1=document.getElementById('mediator1');
+            let exp1=document.getElementById('expert1');
+            if(!beg1.checked && !med1.checked && !exp1.checked){
+                document.getElementById('tech1').innerHTML=`Please select the option for PHP`;
+                flag=1;
+            }
+            else{
+                document.getElementById('tech1').innerHTML=``;
+        }
+
+         let radio1=document.forms['myform']['tech1'].value;
+         console.log(radio1);
+         if(radio1!=''){
+            if(!lan1.checked){
+                document.getElementById('tech1').innerHTML=`Please select the Technology option for this field`;
+                flag=1;
+            }
+            else{
+                document.getElementById('tech1').innerHTML=``;
+            } 
+         }
+
+
+    }
+
+        let lan2=document.getElementById('mysql');
+        if(lan2.checked){
+            let beg2=document.getElementById('beginer2');
+            let med2=document.getElementById('mediator2');
+            let exp2=document.getElementById('expert2');
+            if(!beg2.checked && !med2.checked && !exp2.checked){
+                document.getElementById('tech2').innerHTML=`Please select the option for MYSQL`;
+                flag=1;
+            }
+            else{
+                document.getElementById('tech2').innerHTML=``;
+            } 
+        }
+
+        let radio2=document.forms['myform']['tech2'].value;
+        //  console.log(radio2);
+         if(radio2!=''){
+            if(!lan2.checked){
+                document.getElementById('tech2').innerHTML=`Please select the Technology option for this field`;
+                flag=1;
+            }
+            else{
+                document.getElementById('tech2').innerHTML=``;
+            } 
+         }
+    
+
+
+        let lan3=document.getElementById('laravel');
+        if(lan3.checked){
+            let beg3=document.getElementById('beginer3');
+            let med3=document.getElementById('mediator3');
+            let exp3=document.getElementById('expert3');
+            if(!beg3.checked && !med3.checked && !exp3.checked){
+                document.getElementById('tech3').innerHTML=`Please select the option for Laravel`;
+                flag=1;
+            }
+            else{
+                document.getElementById('tech3').innerHTML=``;
+            }
+        }
+        
+
+        let radio3=document.forms['myform']['tech3'].value;
+        //  console.log(radio2);
+         if(radio3!=''){
+            if(!lan3.checked){
+                document.getElementById('tech3').innerHTML=`Please select the Technology option for this field`;
+                flag=1;
+            }
+            else{
+                document.getElementById('tech3').innerHTML=``;
+
+            } 
+         }
+    
+
+
+        let lan4=document.getElementById('oracle');
+        if(lan4.checked){
+            let beg4=document.getElementById('beginer4');
+            let med4=document.getElementById('mediator4');
+            let exp4=document.getElementById('expert4');
+            if(!beg4.checked && !med4.checked && !exp4.checked){
+                document.getElementById('tech4').innerHTML=`Please select the option for Oracle`;
+                flag=1;
+            }
+            else{
+                document.getElementById('tech4').innerHTML=``;
+
+            } 
+        }
+
+
+        let radio4=document.forms['myform']['tech4'].value;
+        //  console.log(radio2);
+         if(radio4!=''){
+            if(!lan4.checked){
+                document.getElementById('tech4').innerHTML=`Please select the Technology option for this field`;
+                flag=1;
+            }
+            else{
+                document.getElementById('tech4').innerHTML=``;
+
+            } 
+         }
+                    if(flag==1){
+                        return false;
+                    }
+                    // return true;
+                    }
+
+    
+    
+
+    
+    var submiturl=window.location.href.substring(22);
+    console.log('submiturl',submiturl);
+  
+    async function submitForm() {
+    const form = document.getElementById('form');
+    const formData = new FormData(form);
+    const serializedFormData = {};
+
+for (const [key, value] of formData.entries()) {
+    const fieldName = key.replace('[]', ''); // Remove '[]' from field name
+    if (!serializedFormData[fieldName]) {
+        serializedFormData[fieldName] = [];
+    }
+    serializedFormData[fieldName].push(value);
+}
+
+     if(submiturl.startsWith('update')){   
+        // console.log( document.getElementById('subupd'));
+        //  document.getElementById('subupd').value='Update';
+         try {
+      
+      const response = await fetch(`/update/${id}`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+          },
+          body: JSON.stringify(serializedFormData)
+      });
+
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+
+      console.log('Form data sent successfully:', data);
+
+      // Optionally, you can handle the response here
+  } catch (error) {
+      console.error('There was a problem with your fetch operation:', error);
+  }}
+  else{
+ 
+    try {
+      
+      const response = await fetch('/submit', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+          },
+          body: JSON.stringify(serializedFormData)
+      });
+
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+
+      console.log('Form data sent successfully:', data);
+
+      // Optionally, you can handle the response here
+  } catch (error) {
+      console.error('There was a problem with your fetch operation:', error);
+  }
+  }
+
+}
+
+
+
+// function get_users(){
+    
+// }
+
+
+function showSection(sectionId) {
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+            currentSectionIndex = Array.from(sections).findIndex(section => section.id === sectionId);
+        }
+    
+
+    
+        // Function to validate the current section before navigating to the next section
+        function validateCurrentSection() {
+            const currentSection = document.querySelector('.form-section.active');
+            const currentSectionId = currentSection.id;
+    
+            // Validate the current section based on its ID
+            if (currentSectionId === 'basicDetails') {
+                return validateBasicDetails();
+            } else if (currentSectionId === 'educationDetails') {
+                return validateEducationDetails();
+            } else if (currentSectionId === 'workExperience') {
+                return validateWorkExperience();
+            }
+    
+            // Default to validation pass if section is not recognized
+            return true;
+        }
+
+        
+
+const url=new URLSearchParams(window.location.search);
+  const id=url.get('id');
+
+  async function showdata(id){
+    try{
+      const resp=await fetch(`/showdata?id=${id}`);
+      const data=await resp.json();
+      
+      const basicdetails=data.basic_det[0];
+    //   console.log(data.edu_det.length);
+
+ 
+      
+      // Basic Details...
+      const gender=basicdetails.gender;
+      const status=basicdetails.status;
+      document.getElementById('first_name').value=basicdetails.first_name;
+      document.getElementById('last_name').value=basicdetails.last_name;
+      document.getElementById('designation_basic').value=basicdetails.designation;
+      document.getElementById('address_1').value=basicdetails.address_1;
+      document.getElementById('phone').value=basicdetails.phone;
+      document.getElementById('city').value=basicdetails.city;
+      document.getElementById('state').value=basicdetails.state;
+      document.getElementById('email').value=basicdetails.email;
+      document.getElementById(`${gender}`).checked=true;
+      document.getElementById('zip_code').value=basicdetails.zip_code;
+      document.getElementById(`${status}`).selected=true;
+      document.getElementById('dob').value=basicdetails.dob;
+
+      // Education Details..
+      console.log(data.work_exp.length);
+      for(let i=0;i<data.edu_det.length;i++){
+        // console.log( document.getElementsByName('board_name')[i]);
+        document.getElementsByName('board_name')[i].value=data.edu_det[i].board_name_course_name;
+        document.getElementsByName('passing_year')[i].value=data.edu_det[i].passing_year;
+        document.getElementsByName('percentage')[i].value=data.edu_det[i].percentage;
+      }
+
+      // Work Experience...
+      for(let i=0;i<data.work_exp.length;i++){
+
+        document.getElementsByName('company_name')[i].value=data.work_exp[i].company_name;
+        document.getElementsByName('designation')[i].value=data.work_exp[i].designation;
+        document.getElementsByName('from')[i].value=data.work_exp[i].exp_from;
+        document.getElementsByName('to')[i].value=data.work_exp[i].exp_to;
+      }
+
+
+
+
+    // Technologies
+        for(let i=0;i<data.tech_know.length;i++){
+          if(data.tech_know[i].technology_name){
+           document.getElementById(data.tech_know[i].technology_name).checked=true;
+              console.log(data.tech_know[i].technology_name+"beginer");
+           if(data.tech_know[i].language_level.includes("beginer")){
+            document.getElementById(data.tech_know[i].technology_name+"beginer").checked=true;
+           }
+           if(data.tech_know[i].language_level.includes("mediator")){
+            document.getElementById(data.tech_know[i].technology_name+"mediator").checked=true;
+           }
+           if(data.tech_know[i].language_level.includes("expert")){
+            document.getElementById(data.tech_know[i].technology_name+"expert").checked=true;
+           }
+        }
+      } 
+    
+    
+    // Languages....
+        console.log('lang_know', data.lang_know.length);
+      for(let i=0;i<data.lang_know.length;i++){
+           console.log(data.lang_know);
+          
+          if(data.lang_know[i].language_name){
+            console.log(document.getElementById(data.lang_know[i].language_name));
+           document.getElementById(data.lang_know[i].language_name).checked=true;
+          
+           if(data.lang_know[i].language_type.includes("read")){
+            document.getElementById(data.lang_know[i].language_name+"read").checked=true;
+           }
+           if(data.lang_know[i].language_type.includes("write")){
+            document.getElementById(data.lang_know[i].language_name+"write").checked=true;
+           }
+           if(data.lang_know[i].language_type.includes("speak")){
+            document.getElementById(data.lang_know[i].language_name+"speak" ).checked=true;
+           }
+        }
+      } 
+      
+    
+    
+    
+    // Refrences...
+      for(let i=0;i<data.reference.length;i++){
+     document.getElementsByName('ref_name')[i].value=data.reference[i].ref_name;
+     document.getElementsByName('contact_number')[i].value=data.reference[i].contact_no;
+     document.getElementsByName('relation')[i].value=data.reference[i].relation;
+    }
+
+
+      
+      // preference....
+      const department=data.preference[0].department;
+      const location=data.preference[0].prefred_location;
+      console.log(location);
+      console.log(department)
+      document.getElementById(`${location}`).selected=true;
+      document.getElementById('notice_period').value=data.preference[0].notice_period;
+      document.getElementById('expected_ctc').value=data.preference[0].expected_ctc;
+      document.getElementById('current_ctc').value=data.preference[0].current_ctc;
+      document.getElementById(`${department}`).selected=true;
+    }
+
+
+
+
+
+    catch(error){
+        console.log('Error while fetching data',error);
+    }   
+  }
+
+
+
+  document.addEventListener('DOMContentLoaded',()=>{
+    const url=new URLSearchParams(window.location.search);
+    const id=url.get('id');
+  if(id){
+    showdata(id);
+  }
+});
+    
+
+
+    </script>
+    </body>
+</html>
+
+
+
