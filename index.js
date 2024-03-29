@@ -30,8 +30,10 @@ if (err) throw err;
 console.log('Connected to the  database!');
 });
 
-
 app.get('/',(req,res)=>{
+  res.render('firstview.ejs');
+})
+app.get('/register',(req,res)=>{
 res.render('register.ejs')
 })
 
@@ -603,11 +605,18 @@ app.post('/dynamicquery',(req,res)=>{
     
     current=0;
     connection.query(q2,(err,result)=>{
+      if(err){
+        res.render('dynamicqueryerror.ejs');
+      }
+      else{
        total_records=result.length;
        console.log(total_records);
+      }
     })
     connection.query(quer,[current,limit_dynamicquery],function(err,result,fields) {
-       if(err) throw err;
+       if(err){
+         res.render('dynamicqueryerror.ejs');
+       }
        else{
     let currentno=(current/60)+1;
      res.render('dynamicquery2.ejs',{result,fields,currentno:currentno,total_records:total_records});
@@ -622,7 +631,9 @@ app.get('/firstp_dynamicquery',authorization.authorization,(req,res)=>{
     
     current=0;
     connection.query(quer,[current,limit_dynamicquery],function(err,result,fields) {
-       if(err) throw err;
+       if(err) {
+        res.render('dynamicqueryerror.ejs');
+      }
        else{
     let currentno=(current/40)+1;
     console.log(quer);
@@ -636,7 +647,9 @@ app.get('/nextp_dynamicquery', authorization.authorization,(req,res)=>{
     current+=40;
     quer=`${q} limit ?, ?`
     connection.query(quer,[current,limit_dynamicquery],function(err,result,fields){
-        if(err) throw err;
+        if(err) {
+          res.render('dynamicqueryerror.ejs');
+        }
         else{
             let currentno=(current/40)+1;
             console.log(quer);
@@ -651,7 +664,9 @@ app.get('/previousp_dynamicquery',authorization.authorization, (req,res)=>{
     current-=40;
     quer=`${q} limit ?, ?`
     connection.query(quer,[current,limit_dynamicquery],function(err,result,fields){
-        if(err) throw err;
+        if(err){
+          res.render('dynamicqueryerror.ejs');
+        }
         else{
             let currentno=(current/40)+1;
             console.log(quer);
@@ -665,7 +680,9 @@ app.get('/lastp_dynamicquery',authorization.authorization, (req,res)=>{
     if(total_records<=  40){
     quer=`${q} limit ?`
     connection.query(quer,[limit_dynamicquery],function(err,result,fields){
-        if(err) throw err;
+        if(err) {
+          res.render('dynamicqueryerror.ejs');
+        }
         else{
             let currentno=1;
             console.log(quer);
@@ -680,7 +697,9 @@ app.get('/lastp_dynamicquery',authorization.authorization, (req,res)=>{
     // console.log(current);
     quer=`${q} limit ?, ?`
     connection.query(quer,[current,limit_dynamicquery],function(err,result,fields){
-        if(err) throw err;
+        if(err) {
+          res.render('dynamicqueryerror.ejs');
+        }
 
         else{
             let currentno=(total_records/40);
@@ -1566,7 +1585,7 @@ app.get('/cities/:state', (req, res) => {
 
   // Crud Operation of form via ajax.......
 
-app.get('/ajaxform',(req,res)=>{
+app.get('/ajaxform',authorization.authorization,(req,res)=>{
     res.render("crud_form_ajax.ejs")
 });
 
@@ -1793,7 +1812,7 @@ if(tech[i]){
 });
 
 
-app.get('/showdata', async (req, res) => {
+app.get('/showdata',authorization.authorization, async (req, res) => {
   try {
     const  id=req.query.id ;
     console.log(id)
@@ -1845,7 +1864,7 @@ app.get('/showdata', async (req, res) => {
   }
 });
 
-app.get("/update",(req,res)=>{
+app.get("/update",authorization.authorization,(req,res)=>{
     res.render("crud_form_ajax.ejs");
 })
 
