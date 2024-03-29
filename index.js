@@ -1533,19 +1533,46 @@ app.get('/cities/:state', (req, res) => {
 });
 
 
-// Form CRUD Operation via AJAX.................
+  // HTML website Tasks 9Feb website.....
+  app.get('/ehyawebsite',authorization.authorization,(req,res)=>{
+   res.render('ehyawebsite_9feb.ejs')
+  })
+
+
+  // Html website awan host 12 feb.........
+  app.get('/awanhost',authorization.authorization,(req,res)=>{
+    res.render('awanhost_12feb.ejs');
+   })
+
+  // Hirex HTML template 13feb...........
+  app.get('/hirex',authorization.authorization,(req,res)=>{
+    res.render('hirex_13feb.ejs')
+  })
+  
+  // HTML Form template
+  app.get('/form1',authorization.authorization,(req,res)=>{
+    res.render('job_application_form1.ejs')
+  })
+  
+  app.get('/form2',authorization.authorization,(req,res)=>{
+    res.render('job_application_form2.ejs')
+  })
+
+  app.get('/timezone',authorization.authorization,(req,res)=>{
+    res.render('timezone.ejs')
+  })
 
 
 
-app.get("/formajax",authorization.authorization,(req,res)=>{
-    res.render("crud_from_ajax.ejs")
+  // Crud Operation of form via ajax.......
+
+app.get('/ajaxform',(req,res)=>{
+    res.render("crud_form_ajax.ejs")
 });
 
 
 
-
-
-app.post('/formajax/submit', (req, res) => {
+app.post('/submit', (req, res) => {
    var formData=req.body;
     var p=formData.email;
     console.log(p);
@@ -1766,17 +1793,7 @@ if(tech[i]){
 });
 
 
-
-// app.get('/users',emp_det);
-// app.get('/edu',edu_details);
-// app.get('/language',language);
-// app.get('/prefrences',prefrences);
-// app.get('/refrences',refrences);
-// app.get('/technologies', technologies);
-// app.get('/work_experience',work_experience);
-
-
-app.get('/formajax/showdata',authorization.authorization, async (req, res) => {
+app.get('/showdata', async (req, res) => {
   try {
     const  id=req.query.id ;
     console.log(id)
@@ -1799,13 +1816,13 @@ app.get('/formajax/showdata',authorization.authorization, async (req, res) => {
     };
 
     // Fetch data from different tables based on the provided ID
-    // const emp_det = await query(`select * from emp_basic_details where emp_id='${id}';`);
-    // const edu_det = await query(`select * from education_details where emp_id='${id}';`);
-    // const work_exp = await query(`select * from work_experience where emp_id='${id}';`);
-    // const lang_know = await query(`select * from language_known where emp_id='${id}';`);
-    // const tech_know = await query(`select * from technologies where emp_id='${id}';`);
-    // const reference = await query(`select * from refrences where emp_id='${id}';`);
-    // const preference = await query(`select * from prefrences where emp_id='${id}';`);
+    const emp_det = await query(`select * from emp_basic_details where emp_id='${id}';`);
+    const edu_det = await query(`select * from education_details where emp_id='${id}';`);
+    const work_exp = await query(`select * from work_experience where emp_id='${id}';`);
+    const lang_know = await query(`select * from language_known where emp_id='${id}';`);
+    const tech_know = await query(`select * from technologies where emp_id='${id}';`);
+    const reference = await query(`select * from refrences where emp_id='${id}';`);
+    const preference = await query(`select * from prefrences where emp_id='${id}';`);
 
     // Construct the response object
     const response = {
@@ -1828,13 +1845,13 @@ app.get('/formajax/showdata',authorization.authorization, async (req, res) => {
   }
 });
 
-app.get("/formajax/update",authorization.authorization,(req,res)=>{
-    res.render("one.ejs");
+app.get("/update",(req,res)=>{
+    res.render("crud_form_ajax.ejs");
 })
 
 
 
-app.post('/formajax/update/:id',async(req,res)=>{
+app.post('/update/:id',async(req,res)=>{
 
   formData=req.body;
   console.log(formData);
@@ -1905,7 +1922,6 @@ app.post('/formajax/update/:id',async(req,res)=>{
       }
   
  }
- 
 
  
  // Prefrences...
@@ -1918,37 +1934,6 @@ app.post('/formajax/update/:id',async(req,res)=>{
    res.send('updated succesfully');
  
  })
-
-  // HTML website Tasks 9Feb website.....
-  app.get('/ehyawebsite',authorization.authorization,(req,res)=>{
-   res.render('ehyawebsite_9feb.ejs')
-  })
-
-
-  // Html website awan host 12 feb.........
-  app.get('/awanhost',authorization.authorization,(req,res)=>{
-    res.render('awanhost_12feb.ejs');
-   })
-
-  // Hirex HTML template 13feb...........
-  app.get('/hirex',authorization.authorization,(req,res)=>{
-    res.render('hirex_13feb.ejs')
-  })
-  
-  // HTML Form template
-  app.get('/form1',authorization.authorization,(req,res)=>{
-    res.render('job_application_form1.ejs')
-  })
-  
-  app.get('/form2',authorization.authorization,(req,res)=>{
-    res.render('job_application_form2.ejs')
-  })
-
-  app.get('/timezone',authorization.authorization,(req,res)=>{
-    res.render('timezone.ejs')
-  })
-
-
 
    // For Logout and cookie removal process.....
   app.get('/logout',authorization.authorization,(req,res)=>{

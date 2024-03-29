@@ -61,7 +61,7 @@
 </div>
 
     <div id="formContainer">
-        <form id ="form" >
+        <form id ="form" action="/ajaxform">
                
                 <div class="container">
                   <div class="row" >
@@ -661,7 +661,26 @@
         }
     
     
+        // // Function to validate the current section before navigating to the next section
+        // function validateCurrentSection() {
 
+        //     const currentSection = document.querySelector('.form-section.active');
+        //     const currentSectionId = currentSection.id;
+        //     console.log('currentoindex',currentSectionId);
+        //     console.log(currentSection);
+
+    
+        //     // Validate the current section based on its ID
+        //     if (currentSectionId === 'basicDetails') {  
+        //         return validateBasicDetails();
+        //     }
+        //     else if (currentSectionId ==='educationDetails'){
+        //         console.log('education deta')
+        //         return validateEducationDetails();
+        //     }
+        //     // Default to validation pass if section is not recognized
+        //     // return true;
+        // }
 
         function nextSection() {
             // if (!validateCurrentSection()) {
@@ -783,7 +802,16 @@
                     document.getElementsByClassName('ssc')[j].innerHTML='Required Field';
                     flag=1;
                 }
+                // if(ssc[j]=='passing_year_ssc' || ssc[j]=='passing_year_ssc') {
+                //     var edu_no=document.getElementById(ssc[j]).value;
+                //     if (!isNaN(edu_no)){
+                //     document.getElementsByClassName('eduno_validation')[i].innerHTML= 'Enter in proper format';
+                //         }
+                    
+                //     flag=1;
 
+                // }
+                
                else{
                 document.getElementsByClassName('ssc')[j].innerHTML='';
                }
@@ -938,6 +966,15 @@
                     document.getElementsByClassName('ssc')[j].innerHTML='Required Field';
                     flag=1;
                 }
+                // if(ssc[j]=='passing_year_ssc' || ssc[j]=='passing_year_ssc') {
+                //     var edu_no=document.getElementById(ssc[j]).value;
+                //     if (!isNaN(edu_no)){
+                //     document.getElementsByClassName('eduno_validation')[i].innerHTML= 'Enter in proper format';
+                //         }
+                    
+                //     flag=1;
+
+                // }
                 
                else{
                 document.getElementsByClassName('ssc')[j].innerHTML='';
